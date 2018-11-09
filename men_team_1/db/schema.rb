@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_08_235431) do
+ActiveRecord::Schema.define(version: 2018_11_09_003807) do
+
+  create_table "add_topic_to_user_tags", force: :cascade do |t|
+    t.integer "topicid_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topicid_id"], name: "index_add_topic_to_user_tags_on_topicid_id"
+  end
+
+  create_table "add_user_to_user_tags", force: :cascade do |t|
+    t.integer "userid_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["userid_id"], name: "index_add_user_to_user_tags_on_userid_id"
+  end
 
   create_table "topics", force: :cascade do |t|
     t.string "topic"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_tags", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
