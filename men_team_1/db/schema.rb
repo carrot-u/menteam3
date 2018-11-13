@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_12_040233) do
+ActiveRecord::Schema.define(version: 2018_11_13_213510) do
 
   create_table "pairings", force: :cascade do |t|
     t.string "status"
