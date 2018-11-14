@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_09_002242) do
+ActiveRecord::Schema.define(version: 2018_11_13_213510) do
+
+  create_table "pairings", force: :cascade do |t|
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "mentor_id"
+    t.integer "mentee_id"
+    t.index ["mentee_id"], name: "index_pairings_on_mentee_id"
+    t.index ["mentor_id"], name: "index_pairings_on_mentor_id"
+  end
 
   create_table "topics", force: :cascade do |t|
     t.string "topic"
