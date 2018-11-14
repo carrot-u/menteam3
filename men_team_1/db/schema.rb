@@ -31,6 +31,10 @@ ActiveRecord::Schema.define(version: 2018_11_13_213510) do
   create_table "user_tags", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "topic_id"
+    t.index ["topic_id"], name: "index_user_tags_on_topic_id"
+    t.index ["user_id"], name: "index_user_tags_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
