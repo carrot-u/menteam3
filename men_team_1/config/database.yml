@@ -13,7 +13,7 @@ default: &default
 development:
   <<: *default
   database: menteam_development
-  username: kennethweed
+  username: 
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -21,9 +21,9 @@ development:
 test:
   <<: *default
   database: menteam_test
-  username: kennethweed
+  username: 
 
 production:
   <<: *default
   database: menteam_production
-  username: kennethweed
+  username: 
