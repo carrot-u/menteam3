@@ -32,6 +32,17 @@ ActiveRecord::Schema.define(version: 2018_11_14_214744) do
     t.index ["mentor_id"], name: "index_pairings_on_mentor_id"
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "subject"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "pairing_id"
+    t.integer "user_id"
+    t.index ["pairing_id"], name: "index_posts_on_pairing_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
   create_table "topics", force: :cascade do |t|
     t.string "topic"
     t.datetime "created_at", null: false
