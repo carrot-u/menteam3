@@ -4,5 +4,9 @@ resources :users
 
 root to: 'users#index' #set home to index
 
+# Routes for Google authentication
+get ‘auth/:provider/callback’, to: ‘sessions#googleAuth’
+get ‘auth/failure’, to: redirect(‘/’)
+
 end
 
