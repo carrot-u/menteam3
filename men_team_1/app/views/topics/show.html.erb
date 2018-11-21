@@ -1,0 +1,9 @@
+<h1><%= @topic.topic %></h1>
+
+<h2>Available Mentors</h2>
+
+<% @user_tags.each do |mentor| %>
+<p>
+  <%= link_to mentor.user_id, user_tags_path(mentor) %>
+</p>
+<% end %>
