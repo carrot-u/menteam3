@@ -21,6 +21,15 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+
+    @request = []
+    @user.mentor_pairings.each do |pairing|
+      if pairing.status == 'pending'
+        @request << User.find(pairing.mentee_id)
+      end
+    end
+    @request
+   
   end
 
   private

@@ -7,4 +7,5 @@
 
 
 
-<%= link_to "Pairings Path", pairings_path(:id => @user.id) %>
+<%= link_to "Pairings Path", pairings_path(:id => @user.id)%></br>
+<%= link_to "#{@request.any? ? ('Request(' + @request.length.to_s + ')'):'Request'}", pairing_path %>

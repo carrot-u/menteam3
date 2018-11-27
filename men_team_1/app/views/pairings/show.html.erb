@@ -1,1 +1,16 @@
-# <h1><%= @page.mentor_i
+<h1>Request:</h1>
+
+<% if @request.any?%>
+  <% @request.each do |pairing|%>
+    <%mentee = User.find(pairing.mentee_id)%>
+    <span>
+      <%=mentee.first_name%>
+      <%=button_to 'Accept', edit_pairing_path, method: :get, params: {id: pairing.id, status: 'active'}%>
+      <%=button_to 'Decline', edit_pairing_path, method: :get, params: {id: pairing.id, status: 'decline'}%>
+    </span> 
+  <%end%>
+<% else%>
+  <p>You have no pending request!</p>
+<%end%>
+
+<%=link_to 'Profile', user_path(params[:id])%>
