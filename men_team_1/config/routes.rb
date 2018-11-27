@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 resources :users
 
 root to: 'users#index' #set home to index
-
+get '/pairings', to: 'pairings#index'
+get '/pairings/:id', to: 'pairings#show', as:'pairing'
 end
 

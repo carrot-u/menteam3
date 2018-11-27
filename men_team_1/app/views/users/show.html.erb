@@ -4,3 +4,7 @@
 <p><strong>Last Name:</strong> <%= @user.last_name %></p>
 <p><strong>Email:</strong> <%=@user.email %></p>
 <p><strong>Position:</strong> <%= @user.position %></p>
+
+
+
+<%= link_to "Pairings Path", pairings_path(:id => @user.id) %>
