@@ -8,4 +8,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :topics, through: :user_tags
 
+  def name
+    "#{first_name} #{last_name}"
+  end
 end

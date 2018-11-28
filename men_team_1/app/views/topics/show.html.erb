@@ -1,9 +1,20 @@
-<h1><%= @topic.topic %></h1>
+<%= @topic.topic %>
 
-<h2>Available Mentors</h2>
+<h1> Mentors In This Topic </h1>
 
-<% @user_tags.each do |mentor| %>
+<% @mentors.each do |mentor| %>
 <p>
-  <%= link_to mentor.user_id, user_tags_path(mentor) %>
+  <%= link_to mentor.name, user_path(mentor) %>
 </p>
+<% end %>
+
+<%= form_for :pairing do |f| %>
+<div class="field">
+  <%= f.label :mentor %>
+  <%= f.collection_select :mentor_id, @mentors, :id, :name %>
+</div>
+
+<div class="field">
+  <%= f.submit %>
+</div>
 <% end %>

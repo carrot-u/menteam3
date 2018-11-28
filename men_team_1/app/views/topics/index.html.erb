@@ -1,5 +1,29 @@
-<% @topics.each do |topic| %>
-<p>
-  <%= link_to topic.topic, topic_path(topic) %>
-</p>
+<p id="notice"><%= notice %></p>
+
+<h1>Topics</h1>
+
+<%= form_tag(topics_path, method: :get) do %>
+  <%= text_field_tag :term, params[:term] %>
+  <%= submit_tag 'Search', topic: nil %>
 <% end %>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @topics.each do |topic| %>
+      <tr>
+        <td><%= topic.topic %></td>
+        <td><%= link_to 'Show', topic %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
