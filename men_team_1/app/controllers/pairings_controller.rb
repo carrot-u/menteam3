@@ -31,16 +31,16 @@ class PairingsController < ApplicationController
           end
         end
         @request
-        byebug
+    
     end
 
     def edit
         @pairing = Pairing.find(params[:id])
         @pairing.status = params[:status]
         if @pairing.save
-            redirect_to pairing_path(@user.id), alert: "You've successfully accepted request!"
+            redirect_to pairing_path(@user.id), flash: {alert: "You've sucessfully accepted the request!"}
         else
-            redirect_to pairing_path(@user.id), alert: "Oops, Something went wrong! Please try again"
+            redirect_to pairing_path(@user.id), flash: {notice: "Error!"}
         end
     end
 
