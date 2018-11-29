@@ -11,4 +11,6 @@
 
 <% request = 'Request' %>
 <% request += "(#{@pending_mentor_request.length})" if @pending_mentor_request.any? %>
-<%= link_to request, pairing_path %>
+<%= link_to request, pairing_path(session[:user_id]) %>
+<%= link_to "Log out", logout_path, method: :delete %>
+<p><%= session[:user_id] %></p>
