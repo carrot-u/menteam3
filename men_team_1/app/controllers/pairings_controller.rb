@@ -6,15 +6,16 @@ class PairingsController < ApplicationController
  
     def index
         @mentors = []
+        
         @user.mentee_pairings.each do |mentor| 
-            @mentors << User.find(mentor.id) 
+            @mentors << User.find(mentor.mentor_id) 
             
         end
         @mentors
 
         @mentees = []
         @user.mentor_pairings.each do |mentee| 
-            @mentees << User.find(mentee.id) 
+            @mentees << User.find(mentee.mentee_id) 
             
         end
         @mentees
