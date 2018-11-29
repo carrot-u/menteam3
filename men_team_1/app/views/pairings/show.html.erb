@@ -1,6 +1,6 @@
 <h1>Request:</h1>
 
-<% if @pending_mentor_request.any?%>
+<% if @pending_mentor_request.any? %>
   <% @pending_mentor_request.each do |pairing| %>
     <% mentee = User.find(pairing.mentee_id) %>
     <span>
@@ -13,4 +13,4 @@
   <p>You have no pending request!</p>
 <% end %>
 
-<%= link_to 'Profile', user_path(params[:id]) %>
+<%= link_to 'Profile', user_path(session[:user_id]) %>

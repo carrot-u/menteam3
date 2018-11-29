@@ -22,7 +22,6 @@ class PairingsController < ApplicationController
     end
 
     def show
-        @user = User.find(params[:id])
 
         @pending_mentor_request = []
         @user.mentor_pairings.each do |pairing|
@@ -51,7 +50,7 @@ class PairingsController < ApplicationController
     end
 
     def user
-        @user = User.find(params[:id])
+        @user = User.find(session[:user_id])
     end
 
 end
