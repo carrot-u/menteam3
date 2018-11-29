@@ -6,5 +6,9 @@ class User < ApplicationRecord
   # has_many :mentors, class_name: 'User', through: :pairings
   has_many :posts
   has_many :comments
+  has_many :topics, through: :user_tags
+
+  def name
+    "#{first_name} #{last_name}"
+  end
 end
- 
