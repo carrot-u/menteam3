@@ -1,33 +1,34 @@
 class PairingsController < ApplicationController
-    before_action :user
+    before_action :user, only: [:edit, :show]
 
         # @mentor_of_user =  @user.mentee_pairings
         # @mentee_of_user = @user.mentor_pairings
- 
+
     def index
         @mentors = []
-        @user.mentee_pairings.each do |mentor| 
-            @mentors << User.find(mentor.mentor_id) 
-            
+        @user.mentee_pairings.each do |mentor|
+            @mentors << User.find(mentor.mentor_id)
+
         end
         @mentors
 
         @mentees = []
-        @user.mentor_pairings.each do |mentee| 
-            @mentees << User.find(mentee.mentee_id) 
-            
+        @user.mentor_pairings.each do |mentee|
+            @mentees << User.find(mentee.mentee_id)
+
         end
         @mentees
-       
+
     end
 
     def show
 
-        @pending_mentor_request = []
-        @user.mentor_pairings.each do |pairing|
-          if pairing.status == 'pending'
-            @pending_mentor_request << pairing
-          end
+        @pending_mentor_request = @user.mentor_pairings.select do |pairing|
+          pairing.status == 'pending'
+        end
+
+        @pending_mentee_request = @user.mentee_pairings.select do |pairing|
+          pairing.status == 'pending'
         end
         @pending_mentor_request
     
@@ -43,10 +44,16 @@ class PairingsController < ApplicationController
         end
     end
 
+    def create
+      @pairing = Pairing.new(pairing_params.merge(status: 'pending', mentee_id: current_user.id ))
+      @pairing.save
+      redirect_to pairing_path(current_user.id) #if request page shows your sent pending/received pending requests
+    end
+
 
     private
     def pairing_params
-        params.require(:pairing).permit(:mentor_id, :mentee_id)
+        params.require(:pairing).permit(:mentor_id)
     end
 
     def user

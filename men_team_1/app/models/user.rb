@@ -23,4 +23,7 @@ class User < ApplicationRecord
   def name
     "#{first_name} #{last_name}"
   end
+  def name_bio
+    "#{name} #{bio}"
+  end
 end
