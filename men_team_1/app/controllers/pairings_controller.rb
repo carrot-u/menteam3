@@ -6,9 +6,10 @@ class PairingsController < ApplicationController
 
     def index
         @mentors = []
-        @user.mentee_pairings.each do |mentor|
+        @user.mentee_pairings.each do |pairing|
+            if pairing.status == 'active'
             @mentors << User.find(mentor.mentor_id)
-
+            end
         end
         @mentors
 
