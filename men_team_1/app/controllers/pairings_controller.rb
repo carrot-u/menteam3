@@ -30,8 +30,6 @@ class PairingsController < ApplicationController
         @pending_mentee_request = @user.mentee_pairings.select do |pairing|
           pairing.status == 'pending'
         end
-        @pending_mentor_request
-    
     end
 
     def edit
