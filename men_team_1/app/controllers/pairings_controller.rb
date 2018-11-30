@@ -1,5 +1,5 @@
 class PairingsController < ApplicationController
-    before_action :user, only: [:edit, :show]
+    before_action :user, only: [:index, :edit, :show, :create]
 
         # @mentor_of_user =  @user.mentee_pairings
         # @mentee_of_user = @user.mentor_pairings
@@ -33,7 +33,8 @@ class PairingsController < ApplicationController
     end
 
     def edit
-        @pairing = Pairing.find(params[:id])
+        
+        @pairing = Pairing.find(params[:pairing_id])
         @pairing.status = params[:status]
         if @pairing.save
             redirect_to pairing_path(@user.id), flash: {alert: "You've sucessfully accepted the request!"}
@@ -43,9 +44,9 @@ class PairingsController < ApplicationController
     end
 
     def create
-      @pairing = Pairing.new(pairing_params.merge(status: 'pending', mentee_id: current_user.id ))
+      @pairing = Pairing.new(pairing_params.merge(status: 'pending', mentee_id: @user.id))
       @pairing.save
-      redirect_to pairing_path(current_user.id) #if request page shows your sent pending/received pending requests
+      redirect_to pairing_path(@user.id) #if request page shows your sent pending/received pending requests
     end
 
 

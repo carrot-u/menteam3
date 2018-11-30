@@ -5,7 +5,7 @@
 <%= form_for @pairing do |f| %>
 <div class="field">
   <%= f.label :mentor %>
-  <%= f.collection_select :mentor_id, @mentors, :id, :name_bio %>
+  <%= f.collection_select :mentor_id, @mentors, :id, :name %>
 </div>
 
 <div class="field">
