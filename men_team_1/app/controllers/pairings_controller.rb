@@ -1,40 +1,40 @@
 class PairingsController < ApplicationController
-    before_action :user
+    before_action :user, only: [:index, :edit, :show, :create]
 
         # @mentor_of_user =  @user.mentee_pairings
         # @mentee_of_user = @user.mentor_pairings
- 
+
     def index
         @mentors = []
-        @user.mentee_pairings.each do |mentor| 
-            @mentors << User.find(mentor.mentor_id) 
-            
+        @user.mentee_pairings.each do |mentor|
+            @mentors << User.find(mentor.mentor_id)
+
         end
         @mentors
 
         @mentees = []
-        @user.mentor_pairings.each do |mentee| 
-            @mentees << User.find(mentee.mentee_id) 
-            
+        @user.mentor_pairings.each do |mentee|
+            @mentees << User.find(mentee.mentee_id)
+
         end
         @mentees
-       
+
     end
 
     def show
 
-        @pending_mentor_request = []
-        @user.mentor_pairings.each do |pairing|
-          if pairing.status == 'pending'
-            @pending_mentor_request << pairing
-          end
+        @pending_mentor_request = @user.mentor_pairings.select do |pairing|
+          pairing.status == 'pending'
         end
-        @pending_mentor_request
-    
+
+        @pending_mentee_request = @user.mentee_pairings.select do |pairing|
+          pairing.status == 'pending'
+        end
     end
 
     def edit
-        @pairing = Pairing.find(params[:id])
+        
+        @pairing = Pairing.find(params[:pairing_id])
         @pairing.status = params[:status]
         if @pairing.save
             redirect_to pairing_path(@user.id), flash: {alert: "You've sucessfully accepted the request!"}
@@ -43,10 +43,16 @@ class PairingsController < ApplicationController
         end
     end
 
+    def create
+      @pairing = Pairing.new(pairing_params.merge(status: 'pending', mentee_id: @user.id))
+      @pairing.save
+      redirect_to pairing_path(@user.id) #if request page shows your sent pending/received pending requests
+    end
+
 
     private
     def pairing_params
-        params.require(:pairing).permit(:mentor_id, :mentee_id)
+        params.require(:pairing).permit(:mentor_id)
     end
 
     def user

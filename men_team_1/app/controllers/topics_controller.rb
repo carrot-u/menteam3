@@ -5,9 +5,10 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    @pairing = Pairing.new
     @user_tags = UserTag.where(topic_id: @topic.id).pluck(:user_id)
     @mentors = User.find(@user_tags)
-   # render text: @topic.topic
+    
   end
 
 end

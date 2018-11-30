@@ -2,13 +2,7 @@
 
 <h2> Mentors In This Topic </h2>
 
-<% @mentors.each do |mentor| %>
-<p>
-  <%= link_to mentor.name, user_path(mentor) %>
-</p>
-<% end %>
-
-<%= form_for :pairing do |f| %>
+<%= form_for @pairing do |f| %>
 <div class="field">
   <%= f.label :mentor %>
   <%= f.collection_select :mentor_id, @mentors, :id, :name %>
