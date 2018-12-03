@@ -1,13 +1,40 @@
-
-
-<button type="button" class="btn btn-light navbar-default">
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    # body {background-color: powderblue;}
+    # h1   {color: blue; text-align: center; font-weight: bold; }
+    # p    {color: red;}
+    # .box {text-align: center; background-color: #D7CFCF;}
+</style>
+<button type="button" class="btn btn-light btn-outline-secondary float-right">
     <%= link_to "Sign up", new_user_path %>
 </button>
-<button type="button" class="btn btn-light navbar-default">
+<button type="button" class="btn btn-light btn-outline-secondary float-right">
     <%= link_to "Login", login_path %>
 </button>
+</head>
 
 
-<h1>Welcome to Menteam App</h1>
+<body>
+<br>
+<br>
+<br>
+
+    <h1 style>Welcome to Code by Mentors</h1>
+<br>
+<br>
+<div class="box">
+    <h5>
+    Welcome to Menteam, where you can find a hand or lend a hand. <br>
+    Need support in a coding language? <br>
+    Get matched up with mentors at Instacart for multiple different coding languages.<br>
+    Want to share your knowledge?<br>
+    Become a mentor!<br>
+    <%= link_to "Sign up", new_user_path %> to explore more.
+    </h5>
+</body>
+
+</html>
 
 
