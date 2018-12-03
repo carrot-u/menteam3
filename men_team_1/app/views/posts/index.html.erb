@@ -1,0 +1,21 @@
+<h1> All your Questions </h1>
+<p>
+<%= link_to "Create a new Question", new_post_path %>
+</p>
+
+<table>
+    <tr>
+        <th>Subject</th>
+        <th>Body</th>
+    </tr>
+    <% @posts.each do |post| %>
+    <tr>
+        <td> <%= post.subject %> </td> 
+        <td <%= post.body %> </td>
+        <td> <%=link_to 'Edit', edit_post_path(post) %> </td>
+        <td> <%=link_to 'Show', post_path(post) %> </td>
+        <td> <%=link_to 'Remove', post_path(post), method: :delete, data: {confirm: "Are you sure you want to delet your question?"} %> </td>
+    </tr>
+    <% end %>
+
+</table>
