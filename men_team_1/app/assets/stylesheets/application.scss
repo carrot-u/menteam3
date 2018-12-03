@@ -13,3 +13,31 @@
  */
 
  @import "bootstrap";
+
+
+.navbar-custom {
+    background-color: #248f24;
+    ;
+}
+
+.navbtn {
+    color: #ff8c1a;
+}
+
+ #logo {
+     float: left;
+     font-size: 2.0em;
+     color: #fff;
+     text-transform: uppercase;
+     letter-spacing: -1px;
+     font-weight: bold;
+ }
+
+ #logo:hover {
+     color: #ff8c1a;
+     text-decoration: none;
+ }
+
+ .center {
+     text-align: center;
+ }
