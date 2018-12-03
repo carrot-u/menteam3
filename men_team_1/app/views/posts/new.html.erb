@@ -1,6 +1,24 @@
+<h1>Post a Question </h1>
+    <% if @post.errors.any? %>
+    <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+        <h3> The following errors prevented your question from being posted <h3>
+        <li> <%= msg %> </li>
+        <% end %>
+    <ul>
+    <% end %>
 
-<h1>New Question</h1>
 
-<%= render 'form', post: @post %>
-
-<%= link_to 'Back', posts_path %>
+<%= form_for @post do |f| %>
+    <p>
+        <%= f.label :subject %> <br/>
+        <%= f.text_field:subject %> 
+    </p>
+    <p>
+        <%= f.label :body %> <br/>
+        <%= f.text_area :body %> 
+    </p>
+    <p>
+        <%= f.submit 'Post your Question' %>
+    </p>
+<% end %>
