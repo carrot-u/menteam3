@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  # before_action :user, only: [:index, :new, :create, :edit, :show, :destroy, :update]
+  before_action :user, only: [:index, :new, :create, :edit, :show, :destroy, :update]
+  before_action :pairing, only: [:new, :create]
   before_action :set_post, only: [:edit, :show, :destroy, :update]
     
     def index 
@@ -9,11 +10,14 @@ class PostsController < ApplicationController
   
     def new 
       @post = Post.new
+      
     end
 
 
     def create
       @post = Post.new(post_params)
+      @post.user_id = @user.id
+      @post.pairing_id = @pairing.id
       if @post.save
         flash[:notice] = "Your question was posted!"
         redirect_to post_path(@post)
@@ -31,8 +35,6 @@ class PostsController < ApplicationController
         render 'edit'
       end
     end
-    
-
 
     def show 
     end
@@ -45,9 +47,6 @@ class PostsController < ApplicationController
       flash[:notice] = "Your question has been removed"
       redirect_to posts_path
     end
-
-
-  
 
     private
 
@@ -63,6 +62,9 @@ class PostsController < ApplicationController
         @user = User.find(session[:user_id])
       end
 
-
+      def pairing
+        
+        @pairing = Pairing.find(params[:pairing_id])
+      end
 
 end

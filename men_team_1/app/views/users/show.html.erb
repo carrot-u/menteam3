@@ -14,17 +14,13 @@
 
 
 
-<%= link_to "Pairings Path", pairings_path(:id => @user.id)%></br>
+<%= link_to "View your mentors and mentees", pairings_path(:id => @user.id)%></br>
 
 <% request = 'Request' %>
 <% request += "(#{@pending_mentor_request.length})" if @pending_mentor_request.any? %>
 <%= link_to request, pairing_path(session[:user_id]) %>
-<%= link_to "Log out", logout_path, method: :delete %>
-<p><%= session[:user_id] %></p>
+<%#<%= link_to "Log out", logout_path, method: :delete %> 
 
-<br>
-<%= link_to "Ask a Question", new_post_path %>
-</btr>
 
 </body>
 </html>
