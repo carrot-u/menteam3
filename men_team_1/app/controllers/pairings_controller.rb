@@ -6,6 +6,7 @@ class PairingsController < ApplicationController
 
     def index
         @list_of_mentor_pairings = @user.mentee_pairings.where(status: "active")
+        
         @list_of_mentee_pairings = @user.mentor_pairings.where(status: "active")
     end
 
