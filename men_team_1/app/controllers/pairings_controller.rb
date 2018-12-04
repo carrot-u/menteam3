@@ -5,36 +5,20 @@ class PairingsController < ApplicationController
         # @mentee_of_user = @user.mentor_pairings
 
     def index
-        @list_of_mentor_pairings = []
-        @user.mentee_pairings.each do |pairing|
-            if pairing.status == 'active'
-            @list_of_mentor_pairings << pairing
-            end
-        end
-        @list_of_mentor_pairings
-
-        @list_of_mentee_pairings = []
-        @user.mentor_pairings.each do |pairing|
-            if pairing.status == 'active'
-                @list_of_mentee_pairings << pairing
-                end
-        end
-        @list_of_mentee_pairings
+        @list_of_mentor_pairings = @user.mentee_pairings.where(status: "active")
+        @list_of_mentee_pairings = @user.mentor_pairings.where(status: "active")
     end
 
     def show
-
         @pending_mentor_request = @user.mentor_pairings.select do |pairing|
           pairing.status == 'pending'
         end
-
         @pending_mentee_request = @user.mentee_pairings.select do |pairing|
           pairing.status == 'pending'
         end
     end
 
     def edit
-        
         @pairing = Pairing.find(params[:pairing_id])
         @pairing.status = params[:status]
         if @pairing.save
