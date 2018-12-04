@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  
   def index
   end
 
@@ -9,14 +8,14 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    
+
     # respond_to do |format|
     if @user.save
       log_in @user
       flash[:success] = "Welcome to the Sample App!"
       #format.html {redirect_to user_path(@user), notice: 'Your account has been created!'}
       redirect_to @user
-    else 
+    else
       render 'new'
       #format.html {render :new}
     end
@@ -33,11 +32,11 @@ class UsersController < ApplicationController
       end
     end
     @pending_mentor_request
-   
+
   end
 
   private
-  
+
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :position, :password)
   end

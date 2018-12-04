@@ -33,7 +33,7 @@ class PairingsController < ApplicationController
     end
 
     def edit
-        
+
         @pairing = Pairing.find(params[:pairing_id])
         @pairing.status = params[:status]
         if @pairing.save
