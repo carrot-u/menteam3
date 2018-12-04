@@ -1,20 +1,22 @@
 <h1>Mentor Pairings </h1>
+
 <h2> Mentors </h2>
-    <% @mentors.each do |mentor| %>
-        
-        <p> <%= mentor.first_name %> </p>
+    <% @list_of_mentor_pairings.each do |pairing| %>
+        <% user_mentor = User.find(pairing.mentor_id) %>
+        <p> <%= user_mentor.first_name %>  | 
+        <%= link_to "Post a question", new_post_path(:pairing_id => pairing.id) %><h2>
+        </p>
 
-
-    <% end %>
-
+    <% end %> 
 
 <h2> Mentees </h2>
-    <% @mentees.each do |mentee| %>
-        
-        <p> <%= mentee.first_name %> </p>
+    <% @list_of_mentee_pairings.each do |pairing| %>
+        <% user_mentee = User.find(pairing.mentee_id) %>
+        <p> <%= user_mentee.first_name %>  | 
+        <%= link_to "Post a question", new_post_path(:pairing_id => pairing.id) %><h2>
+        </p>
 
-
-    <% end %>
+    <% end %> 
 
 
  
