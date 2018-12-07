@@ -1,5 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
-  <%= link_to "Mentifyy", root_path, class: "navbar-brand", id: "logo" %>
+  <% home = '' %>
+  <% if logged_in? %>
+    <% home = user_path(session[:user_id]) %>
+  <% else %>
+    <% home = root_path %>
+  <% end %>
+  <%= link_to "Mentifyy", home, class: "navbar-brand", id: "logo" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -29,11 +35,21 @@
     </ul>
     %>
     <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="btn btn-outline-success float-right"><%= link_to "Login", login_path, class: "navbtn" %>
-        </button>
+      
+          <% if logged_in? %>
+            <% user = User.find(session[:user_id]) %>
+            <button type="button" class="btn btn-outline-success float-right">
+              <%= link_to user.first_name, user_path(session[:user_id]), class: "navbtn" %>
+            </button>
+          <% else %>
+            <button type="button" class="btn btn-outline-success float-right">
+              <%= link_to "Login", login_path, class: "navbtn" %>
+            </button>
+          <% end %>
 
 
-        <button type="button" class="btn btn-outline-success float-right"><%= link_to "Log out", logout_path, method: :delete, class: "navbtn" %>
+        <button type="button" class="btn btn-outline-success float-right">
+          <%= link_to "Log out", logout_path, method: :delete, class: "navbtn" %>
         </button>
     </div>
   </div>
