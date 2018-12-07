@@ -26,4 +26,22 @@ class User < ApplicationRecord
   def name_bio
     "#{name} #{bio}"
   end
+
+  def all_pairings
+
+    pairings = []
+    mentors = mentor_pairings
+    mentees = mentee_pairings
+    
+    mentors.each do |pairing|
+      pairings << pairing
+    end
+
+    mentees.each do |pairing|
+      pairings << pairing
+    end
+
+    pairings
+  end
+
 end

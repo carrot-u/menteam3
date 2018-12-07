@@ -1,21 +1,27 @@
 class PostsController < ApplicationController
   before_action :user, only: [:index, :new, :create, :edit, :show, :destroy, :update]
-  before_action :pairing, only: [:new, :create]
+  before_action :pairing, only: [:new, :create, :edit]
   before_action :set_post, only: [:edit, :show, :destroy, :update]
     
     def index 
-      @post = Post.all 
+      pairings = @user.all_pairings
+      @post = []
+      pairings.each do |pairing|
+        pairing.posts.each do |post|
+          @post << post
+        end
+      end
+      @post
     end
 
   
     def new 
       @post = Post.new
-      
     end
 
 
     def create
-      @post = Post.new(post_params)
+      @post = Post.new(post_params) 
       @post.user_id = @user.id
       @post.pairing_id = @pairing.id
       if @post.save

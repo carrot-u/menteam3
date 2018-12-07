@@ -11,15 +11,14 @@
     </span>
   <% end %>
 <% else %>
-  <p>You have no pending requests!</p>
+  <p>You have no pending mentor requests!</p>
 <% end %>
 
 
 
 
 <% if @pending_mentee_request.any?%>
-  Pending mentee requests
-  <br>
+  <h5>Request Sent:</h5>
   <% @pending_mentee_request.each do |pairing| %>
     <% mentor = User.find(pairing.mentor_id) %>
     <span>
