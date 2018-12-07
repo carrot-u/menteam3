@@ -4,6 +4,8 @@
 
 <%= form_tag(topics_path, method: :get) do %>
   <%= text_field_tag :term, params[:term] %>
+  <%= text_field_tag "values[]", 1 %>
+  <%= text_field_tag "values[]", 2 %>
   <%= submit_tag 'Search', topic: nil %>
 <% end %>
 

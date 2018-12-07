@@ -1,0 +1,8 @@
+<%= form_tag(topics_path, method: :get) do %>
+  <%= text_field_tag "values[]", Ruby %>
+  <%= text_field_tag "values[]", SQL %>
+  <%= text_field_tag "values[]", Python %>
+  <%= text_field_tag "values[]", Rails %>
+  <%= text_field_tag "values[]", Product Management %>
+  <%= submit_tag 'Submit', topic: nil %>
+<% end %>

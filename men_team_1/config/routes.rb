@@ -5,6 +5,7 @@ resources :users
 resources :topics
 resources :pairings
 resources :posts
+resources :user_tags
 
 get '/login', to: 'sessions#new'
 post '/login', to: 'sessions#create'
