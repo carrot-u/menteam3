@@ -4,9 +4,10 @@ Rails.application.routes.draw do
 resources :users
 resources :topics
 resources :pairings
-resources :posts
 resources :user_tags
-
+resources :posts do
+  resources :comments
+end
 get '/login', to: 'sessions#new'
 post '/login', to: 'sessions#create'
 delete '/logout', to: 'sessions#destroy'

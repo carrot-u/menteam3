@@ -8,5 +8,20 @@
     Question: <%= @post.body %>
 </p>
 
-<%= link_to 'Inbox', posts_path %></br>
+<%= link_to 'Inbox', posts_path %>
 <%= link_to 'Profile', user_path %>
+
+
+<div id ="comments">
+  <h1> Comments</h1>
+  <%@comments.each do |comment| %>
+    <%= render partial: "comments/comment", locals: {comment: comment} %>
+  <%end%>
+
+   
+  <h2> Add a comment </h2>
+  <%= render partial: "comments/form", locals: {comment: @post.comments.new} %>
+</div>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
