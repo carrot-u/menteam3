@@ -1,0 +1,16 @@
+<div>
+        <div>
+            <strong>
+                <%= User.find(comment.user_id).first_name %>
+
+                says: 
+            </strong>
+        </div>
+
+        <%= comment.comment %> 
+   
+    <div class="comment-admin">
+        <%= link_to "Edit", edit_post_comment_path(@post, comment) %>
+        <%= link_to "Delete", [@post, comment], method: :delete%>
+    </div>
+</div>
