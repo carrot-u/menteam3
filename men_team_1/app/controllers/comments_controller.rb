@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
     before_action :user
     before_action :set_post 
+    #test
     
 
     def create 
