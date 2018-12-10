@@ -43,6 +43,7 @@ class PostsController < ApplicationController
     end
 
     def show 
+      @comments = @post.comments
     end
 
     def edit
@@ -69,7 +70,6 @@ class PostsController < ApplicationController
       end
 
       def pairing
-        
         @pairing = Pairing.find(params[:pairing_id])
       end
 
