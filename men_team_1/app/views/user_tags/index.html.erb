@@ -1,0 +1,6 @@
+<h1> Mentoring for the following topics:</h1>
+<% @user_tags.each do |user_selection| %>
+
+  <br><%= topic_name = Topic.find(user_selection.topic_id).topic %></br>
+
+<% end %>
