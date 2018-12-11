@@ -9,4 +9,14 @@ RSpec.describe SessionsController, type: :controller do
     end
   end
 
+  xdescribe "GET #create" do
+    it "returns http success" do
+      post :create, { a: 1}
+
+      expect(Pairing.count).to change
+      expect(response).to have_http_status(:success)
+      
+    end
+  end
+
 end

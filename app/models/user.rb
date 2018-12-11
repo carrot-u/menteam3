@@ -28,20 +28,13 @@ class User < ApplicationRecord
   end
 
   def all_pairings
+    mentor_pairings + mentee_pairings
+  end
 
-    pairings = []
-    mentors = mentor_pairings
-    mentees = mentee_pairings
-    
-    mentors.each do |pairing|
-      pairings << pairing
+  def all_mentors
+    all_pairings.map do |pairing|
+      pairing.mentor
     end
-
-    mentees.each do |pairing|
-      pairings << pairing
-    end
-
-    pairings
   end
 
 end
