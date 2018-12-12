@@ -1,1 +1,8 @@
 <%= render 'form', user_tags: @user_tags %>
+
+<h1> Mentoring for the following topics:</h1>
+<% @user_tags_list.each do |user_selection| %>
+
+  <br><%= topic_name = Topic.find(user_selection.topic_id).topic %></br>
+
+<% end %>
