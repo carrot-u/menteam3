@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   
   def index
+    redirect_to user_path(:id => session[:user_id]) if session[:user_id] 
   end
 
   def new
@@ -25,6 +26,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(session[:user_id])
+
+    redirect_to @user if session[:user_id] != params[:id].to_i
 
     @pending_mentor_request = []
     @user.mentor_pairings.each do |pairing|
