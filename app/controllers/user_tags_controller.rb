@@ -1,14 +1,10 @@
 class UserTagsController < ApplicationController
-  before_action :user, only: [:index, :new, :create]
-
-  def index
-
-    @user_tags = UserTag.where(user_id: @user.id)
-    
-  end
+  before_action :user, only: [:new, :create]
 
   def new
     @user_tags = UserTag.new
+
+    @user_tags_list = UserTag.where(user_id: @user.id)
   end
 
 
@@ -18,7 +14,7 @@ class UserTagsController < ApplicationController
     @user_tags.topic_id = params[:user_tag][:topic_id]
     @user_tags.user_id = @user.id
     @user_tags.save
-    redirect_to user_tags_path
+    redirect_to new_user_tag_path
   end
 
 
