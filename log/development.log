@@ -11403,3 +11403,51 @@ Completed 200 OK in 89ms (Views: 83.9ms | ActiveRecord: 1.8ms)
 >>>>>>> 2a6b4fd52b8ce3d7ada3887eb8c09772773a9a1a
 
 
+Started GET "/user_tags/new" for 127.0.0.1 at 2018-12-14 14:12:22 -0800
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/svetamohan/.rbenv/versions/2.3.7/lib/ruby/gems/2.3.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UserTagsController#new as HTML
+  [1m[36mUser Load (17.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/user_tags_controller.rb:25
+  Rendering user_tags/new.html.erb within layouts/application
+  [1m[36mTopic Load (6.6ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/user_tags/_form.html.erb:6
+  Rendered user_tags/_form.html.erb (30.0ms)
+  [1m[36mUserTag Load (17.7ms)[0m  [1m[34mSELECT "user_tags".* FROM "user_tags" WHERE "user_tags"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/user_tags/new.html.erb:4
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  Rendered user_tags/new.html.erb within layouts/application (58.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:40
+  Rendered layouts/_navigation.html.erb (2.7ms)
+  Rendered layouts/_messages.html.erb (0.3ms)
+Completed 200 OK in 614ms (Views: 399.6ms | ActiveRecord: 164.1ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-12-14 14:16:23 -0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ao2i4Ekcq5v0Mbx8QdmNwZ9TpUcEEff1lSmdDqENNg4uInjSlnlw6lFc2SCSLXmpjsOA/dAsNZ15AHbZt0jm8Q=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-14 14:16:23 -0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (1.8ms)
+  Rendered layouts/_navigation.html.erb (1.6ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 85ms (Views: 80.9ms | ActiveRecord: 0.0ms)
+
+
