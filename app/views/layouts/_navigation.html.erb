@@ -1,56 +1,112 @@
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
   <% home = '' %>
   <% if logged_in? %>
-    <% home = user_path(session[:user_id]) %>
+    <% home = user_path(session[:user_id]) %> 
   <% else %>
     <% home = root_path %>
   <% end %>
-  <%= link_to "Mentifyy", home, class: "navbar-brand", id: "logo" %>
+  <%= link_to "MentorSpot", home, class: "navbar-brand", id: "logo" %>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <%# 
-     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Dropdown
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
-    %>
+  <div class="collapse navbar-collapse " id="navbarSupportedContent">
+
+
+
+                  <!--                       
+                      <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Link</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Dropdown
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Action</a>
+                            <a class="dropdown-item" href="#">Another action</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Something else here</a>
+                          </div>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link disabled" href="#">Disabled</a>
+                        </li>
+                      </ul>
+                      %>
+                  -->
+
+ 
+
     <div class="btn-group" role="group" aria-label="Basic example">
-      
-          <% if logged_in? %>
-            <% user = User.find(session[:user_id]) %>
-            <button type="button" class="btn btn-outline-success float-right">
-              <%= link_to user.first_name, user_path(session[:user_id]), class: "navbtn" %>
-            </button>
-          <% else %>
-            <button type="button" class="btn btn-outline-success float-right">
-              <%= link_to "Login", login_path, class: "navbtn" %>
-            </button>
-          <% end %>
+      <% if logged_in? %>
+        <% user = User.find(session[:user_id]) %>
+        <button type="button" class="btn btn-outline-success pull-right">
+          <%= link_to user.first_name, user_path(session[:user_id]), class: "navbtn" %>
+        </button>
+      <% else %> 
+        <button type="button" class="btn btn-outline-success pull-right">
+          <%= link_to "Login", login_path, class: "navbtn" %>
+        </button>
+      <% end %>
+ 
 
-
-        <button type="button" class="btn btn-outline-success float-right">
-          <%= link_to "Log out", logout_path, method: :delete, class: "navbtn" %>
+        <button type="button" class="btn btn-outline-success pull-right">
+          <%= link_to "Log out", logout_path, method: :delete, class: "navbtn" %> 
         </button>
     </div>
   </div>
 </nav>
+
+
+<% if logged_in? %>
+
+
+<div class="second-nav">
+  <ul class="nav">
+      <li class="sec-nav-li">
+        <% messages = '' %>
+        <% if logged_in? %>
+          <% messages = posts_path(session[:user_id]) %> 
+        <% else %>
+          <% messages = root_path %>
+        <% end %>
+        <%= link_to "Messages", messages, class: "sec-nav-li", id: "sec-nav" %>
+      </li>
+
+      <li class="sec-nav-li">
+          <% connections = '' %>
+          <% if logged_in? %>
+            <% connections = pairings_path(session[:user_id]) %> 
+          <% else %>
+            <% connections = root_path %>
+          <% end %>
+          <%= link_to "Connections", connections, class: "sec-nav-li", id: "sec-nav" %>
+      </li>
+
+      <li class="sec-nav-li"> 
+        <% find_mentor = '' %>
+        <% if logged_in? %>
+          <% find_mentor = topics_path(session[:user_id]) %> 
+        <% else %>
+          <% find_mentor = root_path %>
+        <% end %>
+        <%= link_to "Find a Mentor", find_mentor, class: "sec-nav-li", id: "sec-nav" %>
+      </li>
+      
+      <li class="sec-nav-li">  
+      <% profile = '' %>
+        <% if logged_in? %>
+        <% profile = user_path(session[:user_id]) %> 
+        <% else %>
+        <% profile = root_path %>
+        <% end %>
+        <%= link_to "Profile", profile, class: "sec-nav-li" %>
+      </li>
+    
+  </ul>
+</div>
+<% end %>
