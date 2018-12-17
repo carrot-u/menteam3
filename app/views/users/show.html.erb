@@ -11,18 +11,31 @@
 <p><strong>Last Name:</strong> <%= @user.last_name %></p>
 <p><strong>Email:</strong> <%=@user.email %></p>
 <p><strong>Position:</strong> <%= @user.position %></p>
+<p><strong>Bio:</strong> <%= @user.bio %></p>
 
 
 
-<%= link_to "View your mentors and mentees", pairings_path(:id => @user.id)%></br>
-
+<div> <%= link_to "View your mentors and mentees", pairings_path(:id => @user.id)%> </div>
+<div>
 <% request = 'Request' %>
+</div>
+<div>
 <% request += "(#{@pending_mentor_request.length})" if @pending_mentor_request.any? %>
-<%= link_to request, pairing_path(session[:user_id]) %></br>
-<%= link_to "Search for Topics", topics_path %></br>
-<%= link_to "Become a Mentor", new_user_tag_path %></br>
+<%= link_to request, pairing_path(session[:user_id]) %>
+</div>
+<div>
+<%= link_to "Search for Topics", topics_path %>
+</div>
+<div>
+<%= link_to "Become a Mentor", new_user_tag_path %>
+</div>
+<div>
 <%= link_to 'Inbox', posts_path%>
+</div>
 <%#<%= link_to "Log out", logout_path, method: :delete %>
+<div>
+<%= link_to 'Edit Profile', edit_user_path %>
+</div>
 
 
 </body>

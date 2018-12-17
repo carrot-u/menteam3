@@ -1,6 +1,6 @@
 <body>
 
-<h1>Please fill in the following information</h1>
+<h1>Update your Profile</h1>
 
 <%= form_for(@user) do |f| %>
   <%= f.label :first_name %>:
@@ -23,9 +23,6 @@
 
   <%= f.label :bio %>:
   <%= f.text_area :bio %><br />
-
-
-  <p><strong>Bio:</strong> <%= @user.bio %></p>
 
   <%= f.submit 'Submit' %>
 <% end %>
