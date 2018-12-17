@@ -11,8 +11,7 @@
 <p><strong>Last Name:</strong> <%= @user.last_name %></p>
 <p><strong>Email:</strong> <%=@user.email %></p>
 <p><strong>Position:</strong> <%= @user.position %></p>
-
-
+<p><strong>Bio:</strong> <%= @user.bio %></p>
 
 <%= link_to "View your mentors and mentees", pairings_path(:id => @user.id)%></br>
 
@@ -23,7 +22,9 @@
 <%= link_to "Become a Mentor", new_user_tag_path %></br>
 <%= link_to 'Inbox', posts_path%>
 <%#<%= link_to "Log out", logout_path, method: :delete %>
-
+<div>
+<%= link_to 'Edit Profile', edit_user_path %>
+</div>
 
 </body>
 </html>

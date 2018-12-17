@@ -14719,3 +14719,579 @@ Processing by PairingsController#index as
 Completed 200 OK in 224ms (Views: 176.4ms | ActiveRecord: 1.1ms)
 
 
+Started GET "/users" for 127.0.0.1 at 2018-12-16 22:38:21 -0800
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/svetamohan/.rbenv/versions/2.3.7/lib/ruby/gems/2.3.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#index as HTML
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 10ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2018-12-16 22:38:22 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (23.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  [1m[36mPairing Load (23.1ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:33
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (2.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (6.1ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 4363ms (Views: 4207.6ms | ActiveRecord: 101.5ms)
+
+
+Started GET "/posts.5" for 127.0.0.1 at 2018-12-16 22:38:34 -0800
+Processing by PostsController#index as 
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:69
+  [1m[36mPairing Load (0.7ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/models/user.rb:31
+  [1m[36mPairing Load (6.4ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentee_id" = $1[0m  [["mentee_id", 5]]
+  ↳ app/models/user.rb:31
+  Rendering posts/index.html.erb within layouts/application
+  Rendered posts/index.html.erb within layouts/application (0.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (2.7ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 216ms (Views: 137.6ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/pairings.5" for 127.0.0.1 at 2018-12-16 22:38:37 -0800
+Processing by PairingsController#index as 
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/pairings_controller.rb:45
+  Rendering pairings/index.html.erb within layouts/application
+  [1m[36mPairing Load (7.9ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentee_id" = $1 AND "pairings"."status" = $2[0m  [["mentee_id", 5], ["status", "active"]]
+  ↳ app/views/pairings/index.html.erb:4
+  [1m[36mPairing Load (1.3ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1 AND "pairings"."status" = $2[0m  [["mentor_id", 5], ["status", "active"]]
+  ↳ app/views/pairings/index.html.erb:13
+  Rendered pairings/index.html.erb within layouts/application (12.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (7.7ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 215ms (Views: 164.4ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/topics.5" for 127.0.0.1 at 2018-12-16 22:38:39 -0800
+Processing by TopicsController#index as 
+  Rendering topics/index.html.erb within layouts/application
+  [1m[36mTopic Load (7.1ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/topics/index.html.erb:20
+  Rendered topics/index.html.erb within layouts/application (25.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (5.2ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 213ms (Views: 159.8ms | ActiveRecord: 12.9ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2018-12-16 22:38:41 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  [1m[36mPairing Load (0.3ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:33
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.2ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (5.1ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 93ms (Views: 88.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2018-12-16 22:39:39 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  [1m[36mPairing Load (0.4ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:33
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 77ms (Views: 70.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2018-12-16 22:39:56 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:28
+  [1m[36mPairing Load (0.3ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:33
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (2.4ms)
+  Rendered layouts/_messages.html.erb (0.3ms)
+Completed 200 OK in 62ms (Views: 55.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2018-12-16 22:58:39 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:34
+  [1m[36mPairing Load (0.4ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:39
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (33.0ms)
+Completed 500 Internal Server Error in 188ms (ActiveRecord: 27.9ms)
+
+
+  
+ActionView::Template::Error (Missing partial users/_form, application/_form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/svetamohan/menteam-prototype/menteam3/app/views"
+):
+    13: <p><strong>Position:</strong> <%= @user.position %></p>
+    14: <p><strong>Bio:</strong> <%= @user.bio %></p>
+    15: 
+    16: <%= render 'form', user_tags: @user_tags %>
+    17: 
+    18: <h1> Mentoring for the following topics:</h1>
+    19: <% @user_tags_list.each do |user_selection| %>
+  
+app/views/users/show.html.erb:16:in `_app_views_users_show_html_erb__326444610197486030_70304448841900'
+Started GET "/users/5" for 127.0.0.1 at 2018-12-16 23:05:05 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:32
+  [1m[36mPairing Load (0.3ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:37
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (3.3ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (4.8ms)
+  Rendered layouts/_messages.html.erb (3.0ms)
+Completed 200 OK in 193ms (Views: 116.2ms | ActiveRecord: 16.0ms)
+
+
+Started GET "/user" for 127.0.0.1 at 2018-12-16 23:35:04 -0800
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/svetamohan/.rbenv/versions/2.3.7/lib/ruby/gems/2.3.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+  
+ActionController::RoutingError (No route matches [GET] "/user"):
+  
+actionpack (5.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.1) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.1) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.2.1) lib/rails/engine.rb:524:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2018-12-16 23:35:10 -0800
+Processing by UsersController#index as HTML
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2018-12-16 23:35:10 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30
+  [1m[36mPairing Load (0.3ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:35
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (18.6ms)
+  Rendered layouts/_messages.html.erb (0.7ms)
+Completed 200 OK in 496ms (Views: 419.9ms | ActiveRecord: 33.3ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2018-12-17 12:28:48 -0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"AfWsC4KsvkMveAYCnWWR0fw+uzEYxY2PeQ1YLkwppohFWnY5XcllMooVY15OkWW57a6ei8z4T+eVJLP5Wmx2dw=="}
+Redirected to http://localhost:3000/
+Completed 302 Found in 15ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-17 12:28:49 -0800
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (2.6ms)
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 146ms (Views: 141.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-12-17 12:28:56 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (67.5ms)
+  Rendered layouts/_navigation.html.erb (3.1ms)
+  Rendered layouts/_messages.html.erb (1.4ms)
+Completed 200 OK in 165ms (Views: 161.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2018-12-17 12:29:07 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"f/Hf3TokCADcR7sG0zejhS9eFdyr8Xn9dPRevWmRFrZ1vQJ3EBx3vvS/A3qd/5tXA7QXKMeEFZUc8ptPdDYOww==", "session"=>{"email"=>"dora@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (32.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "dora@gmail.com"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 183ms (ActiveRecord: 32.4ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2018-12-17 12:29:07 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30
+  [1m[36mPairing Load (0.4ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:35
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (6.6ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (14.4ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 136ms (Views: 107.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2018-12-17 12:31:29 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30
+  [1m[36mPairing Load (0.4ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:35
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (32.0ms)
+Completed 500 Internal Server Error in 74ms (ActiveRecord: 1.2ms)
+
+
+  
+ActionView::Template::Error (Missing partial usertags/_form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/svetamohan/menteam-prototype/menteam3/app/views"
+):
+    13: <p><strong>Position:</strong> <%= @user.position %></p>
+    14: <p><strong>Bio:</strong> <%= @user.bio %></p>
+    15: 
+    16: <%= render partial: "usertags/form" %>
+    17: 
+    18: <%= link_to "View your mentors and mentees", pairings_path(:id => @user.id)%></br>
+    19: 
+  
+app/views/users/show.html.erb:16:in `_app_views_users_show_html_erb___2900289830861104845_70153756903280'
+Started GET "/login" for 127.0.0.1 at 2018-12-17 12:31:47 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (2.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (3.9ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 80ms (Views: 76.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2018-12-17 12:32:14 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (10.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (15.7ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 94ms (Views: 80.5ms | ActiveRecord: 10.8ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2018-12-17 12:32:19 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30
+  [1m[36mPairing Load (1.9ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:35
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (22.9ms)
+Completed 500 Internal Server Error in 49ms (ActiveRecord: 5.5ms)
+
+
+  
+ActionView::Template::Error (Missing partial users/_usertags, application/_usertags with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/svetamohan/menteam-prototype/menteam3/app/views"
+):
+    13: <p><strong>Position:</strong> <%= @user.position %></p>
+    14: <p><strong>Bio:</strong> <%= @user.bio %></p>
+    15: 
+    16: <%= render partial: "usertags" %>
+    17: 
+    18: <%= link_to "View your mentors and mentees", pairings_path(:id => @user.id)%></br>
+    19: 
+  
+app/views/users/show.html.erb:16:in `_app_views_users_show_html_erb___2900289830861104845_70153708363420'
+Started GET "/users/5" for 127.0.0.1 at 2018-12-17 12:34:07 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30
+  [1m[36mPairing Load (0.5ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:35
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (10.4ms)
+Completed 500 Internal Server Error in 111ms (ActiveRecord: 37.8ms)
+
+
+  
+ActionView::Template::Error (Missing partial usertags/_form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/svetamohan/menteam-prototype/menteam3/app/views"
+):
+    13: <p><strong>Position:</strong> <%= @user.position %></p>
+    14: <p><strong>Bio:</strong> <%= @user.bio %></p>
+    15: 
+    16: <%= render partial: "usertags/form" %>
+    17: 
+    18: <%= link_to "View your mentors and mentees", pairings_path(:id => @user.id)%></br>
+    19: 
+  
+app/views/users/show.html.erb:16:in `_app_views_users_show_html_erb___2900289830861104845_70153769627260'
+Started GET "/users/5" for 127.0.0.1 at 2018-12-17 12:35:03 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (57.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30
+  [1m[36mPairing Load (0.4ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:35
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (20.7ms)
+Completed 500 Internal Server Error in 125ms (ActiveRecord: 57.4ms)
+
+
+  
+ActionView::Template::Error (Missing partial usertag/_form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/svetamohan/menteam-prototype/menteam3/app/views"
+):
+    13: <p><strong>Position:</strong> <%= @user.position %></p>
+    14: <p><strong>Bio:</strong> <%= @user.bio %></p>
+    15: 
+    16: <%= render partial: "usertag/form" %>
+    17: 
+    18: <%= link_to "View your mentors and mentees", pairings_path(:id => @user.id)%></br>
+    19: 
+  
+app/views/users/show.html.erb:16:in `_app_views_users_show_html_erb___2900289830861104845_70153770701500'
+Started GET "/users/5" for 127.0.0.1 at 2018-12-17 12:35:34 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30
+  [1m[36mPairing Load (11.1ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:35
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (11.0ms)
+Completed 500 Internal Server Error in 46ms (ActiveRecord: 16.8ms)
+
+
+  
+ActionView::Template::Error (Missing partial usertag/__form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/svetamohan/menteam-prototype/menteam3/app/views"
+):
+    13: <p><strong>Position:</strong> <%= @user.position %></p>
+    14: <p><strong>Bio:</strong> <%= @user.bio %></p>
+    15: 
+    16: <%= render partial: "usertag/_form" %>
+    17: 
+    18: <%= link_to "View your mentors and mentees", pairings_path(:id => @user.id)%></br>
+    19: 
+  
+app/views/users/show.html.erb:16:in `_app_views_users_show_html_erb___2900289830861104845_70153786540040'
+Started GET "/login" for 127.0.0.1 at 2018-12-17 12:56:24 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (30.7ms)
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (26.2ms)
+  Rendered layouts/_messages.html.erb (2.0ms)
+Completed 200 OK in 321ms (Views: 306.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2018-12-17 13:22:45 -0800
+  
+SyntaxError (/Users/svetamohan/menteam-prototype/menteam3/app/controllers/users_controller.rb:61: syntax error, unexpected end-of-input, expecting keyword_end):
+  
+app/controllers/users_controller.rb:61: syntax error, unexpected end-of-input, expecting keyword_end
+Started GET "/users/5" for 127.0.0.1 at 2018-12-17 13:23:23 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41
+  [1m[36mPairing Load (0.4ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:46
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (10.1ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (12.8ms)
+  Rendered layouts/_messages.html.erb (2.1ms)
+Completed 200 OK in 500ms (Views: 182.7ms | ActiveRecord: 138.6ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2018-12-17 13:23:29 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41
+  [1m[36mPairing Load (0.3ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:46
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (2.7ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (21.9ms)
+  Rendered layouts/_messages.html.erb (3.1ms)
+Completed 200 OK in 192ms (Views: 184.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2018-12-17 13:23:58 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41
+  [1m[36mPairing Load (0.4ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:46
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (5.7ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (5.4ms)
+  Rendered layouts/_messages.html.erb (1.4ms)
+Completed 200 OK in 147ms (Views: 130.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at 2018-12-17 13:24:18 -0800
+  [1m[35m (14.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/svetamohan/.rbenv/versions/2.3.7/lib/ruby/gems/2.3.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (20.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (4.8ms)
+  Rendered layouts/_messages.html.erb (0.5ms)
+Completed 200 OK in 448ms (Views: 408.3ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at 2018-12-17 13:24:31 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (3.4ms)
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (9.1ms)
+  Rendered layouts/_messages.html.erb (1.3ms)
+Completed 200 OK in 70ms (Views: 58.9ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2018-12-17 13:25:13 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41
+  [1m[36mPairing Load (0.8ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:46
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.4ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (4.1ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 180ms (Views: 129.5ms | ActiveRecord: 4.8ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at 2018-12-17 13:25:16 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (6.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (3.4ms)
+  Rendered layouts/_messages.html.erb (0.4ms)
+Completed 200 OK in 85ms (Views: 77.0ms | ActiveRecord: 1.8ms)
+
+
