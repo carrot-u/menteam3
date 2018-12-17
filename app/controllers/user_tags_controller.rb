@@ -9,7 +9,6 @@ class UserTagsController < ApplicationController
 
 
   def create
-    # @user_tags = UserTag.create(params[@user.id, :topic_id])
     @user_tags  = UserTag.new
     @user_tags.topic_id = params[:user_tag][:topic_id]
     @user_tags.user_id = @user.id
