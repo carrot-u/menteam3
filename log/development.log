@@ -15295,3 +15295,377 @@ Processing by UsersController#edit as HTML
 Completed 200 OK in 85ms (Views: 77.0ms | ActiveRecord: 1.8ms)
 
 
+Started GET "/users/5" for 127.0.0.1 at 2018-12-17 13:41:27 -0800
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/svetamohan/.rbenv/versions/2.3.7/lib/ruby/gems/2.3.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41
+  [1m[36mPairing Load (0.6ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:46
+  Rendering users/show.html.erb within layouts/application
+  Rendered user_tags/_form.html.erb (3.6ms)
+  Rendered users/show.html.erb within layouts/application (9.6ms)
+Completed 500 Internal Server Error in 112ms (ActiveRecord: 25.1ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h2> Become a Mentor! </h2>
+    2: 
+    3: <%= form_for @user_tags do |f| %>
+    4: <div class="field">
+    5:   <%= f.label :topic %>
+    6:   <%= f.collection_select :topic_id, Topic.all, :id, :topic, :include_blank => true %>
+  
+app/views/user_tags/_form.html.erb:3:in `_app_views_user_tags__form_html_erb__2346723556693749501_70295504592040'
+app/views/users/show.html.erb:29:in `_app_views_users_show_html_erb___2944485319742907208_70295533799440'
+Started GET "/users/5" for 127.0.0.1 at 2018-12-17 13:41:49 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41
+  [1m[36mPairing Load (0.5ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:46
+  Rendering users/show.html.erb within layouts/application
+  Rendered user_tags/_form.html.erb (3.4ms)
+  Rendered users/show.html.erb within layouts/application (8.1ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 2.2ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h2> Become a Mentor! </h2>
+    2: 
+    3: <%= form_for @user_tags do |f| %>
+    4: <div class="field">
+    5:   <%= f.label :topic %>
+    6:   <%= f.collection_select :topic_id, Topic.all, :id, :topic, :include_blank => true %>
+  
+app/views/user_tags/_form.html.erb:3:in `_app_views_user_tags__form_html_erb__2346723556693749501_70295533229940'
+app/views/users/show.html.erb:29:in `_app_views_users_show_html_erb___2944485319742907208_70295533294280'
+Started GET "/users/5" for 127.0.0.1 at 2018-12-17 13:41:58 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41
+  [1m[36mPairing Load (0.4ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:46
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (1.5ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (10.1ms)
+  Rendered layouts/_messages.html.erb (1.0ms)
+Completed 200 OK in 382ms (Views: 377.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/user_tags/new" for 127.0.0.1 at 2018-12-17 13:42:03 -0800
+Processing by UserTagsController#new as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/user_tags_controller.rb:25
+  Rendering user_tags/new.html.erb within layouts/application
+  [1m[36mTopic Load (13.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/user_tags/_form.html.erb:6
+  Rendered user_tags/_form.html.erb (39.8ms)
+  [1m[36mUserTag Load (35.2ms)[0m  [1m[34mSELECT "user_tags".* FROM "user_tags" WHERE "user_tags"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/user_tags/new.html.erb:4
+  [1m[36mTopic Load (6.5ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  Rendered user_tags/new.html.erb within layouts/application (90.8ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (9.4ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 279ms (Views: 126.9ms | ActiveRecord: 112.8ms)
+
+
+Started POST "/user_tags" for 127.0.0.1 at 2018-12-17 13:42:10 -0800
+Processing by UserTagsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GFkFn0Ya7fiDgwHOYvnDfa0kCqFpu0Q+uymw/VHlLt4cL3jR0jqR/XagfxHW6vFZmk15tKJERa7T6Lvzqrt3mA==", "user_tag"=>{"topic_id"=>"7"}, "commit"=>"Sign Up"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/user_tags_controller.rb:25
+  [1m[35m (7.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/user_tags_controller.rb:16
+  [1m[36mUserTag Create (73.4ms)[0m  [1m[32mINSERT INTO "user_tags" ("created_at", "updated_at", "user_id", "topic_id") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["created_at", "2018-12-17 21:42:10.904824"], ["updated_at", "2018-12-17 21:42:10.904824"], ["user_id", 5], ["topic_id", 7]]
+  ↳ app/controllers/user_tags_controller.rb:16
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/user_tags_controller.rb:16
+Redirected to http://localhost:3000/user_tags/new
+Completed 302 Found in 91ms (ActiveRecord: 83.6ms)
+
+
+Started GET "/user_tags/new" for 127.0.0.1 at 2018-12-17 13:42:10 -0800
+Processing by UserTagsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/user_tags_controller.rb:25
+  Rendering user_tags/new.html.erb within layouts/application
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/user_tags/_form.html.erb:6
+  Rendered user_tags/_form.html.erb (2.4ms)
+  [1m[36mUserTag Load (5.6ms)[0m  [1m[34mSELECT "user_tags".* FROM "user_tags" WHERE "user_tags"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/user_tags/new.html.erb:4
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  Rendered user_tags/new.html.erb within layouts/application (16.5ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (5.9ms)
+  Rendered layouts/_messages.html.erb (0.6ms)
+Completed 200 OK in 72ms (Views: 61.1ms | ActiveRecord: 7.0ms)
+
+
+Started GET "/user_tags/new" for 127.0.0.1 at 2018-12-17 18:28:23 -0800
+Processing by UserTagsController#new as HTML
+  [1m[36mUser Load (188.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/user_tags_controller.rb:25
+  Rendering user_tags/new.html.erb within layouts/application
+  [1m[36mTopic Load (9.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/user_tags/_form.html.erb:6
+  Rendered user_tags/_form.html.erb (225.3ms)
+  [1m[36mUserTag Load (32.5ms)[0m  [1m[34mSELECT "user_tags".* FROM "user_tags" WHERE "user_tags"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/user_tags/new.html.erb:4
+  [1m[36mTopic Load (1.6ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mTopic Load (14.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mCACHE Topic Load (2.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mTopic Load (17.4ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  Rendered user_tags/new.html.erb within layouts/application (600.5ms)
+Started GET "/users/5" for 127.0.0.1 at 2018-12-17 18:28:27 -0800
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (148.9ms)
+  Rendered layouts/_messages.html.erb (7.2ms)
+Completed 200 OK in 3313ms (Views: 2923.8ms | ActiveRecord: 266.3ms)
+
+
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (79.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41
+  [1m[36mPairing Load (17.2ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:46
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (5.7ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (259.1ms)
+  Rendered layouts/_messages.html.erb (16.1ms)
+Completed 200 OK in 1334ms (Views: 1175.9ms | ActiveRecord: 96.9ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2018-12-17 18:28:33 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (53.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41
+  [1m[36mPairing Load (9.0ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:46
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (29.3ms)
+Started GET "/users/5" for 127.0.0.1 at 2018-12-17 18:28:34 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mCACHE User Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (103.5ms)
+  [1m[36mUser Load (262.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41
+  Rendered layouts/_messages.html.erb (2.5ms)
+Completed 200 OK in 1107ms (Views: 976.7ms | ActiveRecord: 64.8ms)
+
+
+  [1m[36mPairing Load (52.1ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:46
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (5.9ms)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (88.8ms)
+  Rendered layouts/_messages.html.erb (9.1ms)
+Completed 200 OK in 1640ms (Views: 1126.4ms | ActiveRecord: 314.3ms)
+
+
+Started GET "/users/5/edit" for 127.0.0.1 at 2018-12-17 18:28:39 -0800
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (107.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:11
+  Rendering users/edit.html.erb within layouts/application
+  Rendered users/edit.html.erb within layouts/application (151.1ms)
+  [1m[36mUser Load (51.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (70.6ms)
+  Rendered layouts/_messages.html.erb (2.9ms)
+Completed 200 OK in 1011ms (Views: 837.3ms | ActiveRecord: 158.6ms)
+
+
+Started GET "/user_tags/new" for 127.0.0.1 at 2018-12-17 18:29:19 -0800
+Processing by UserTagsController#new as HTML
+  [1m[36mUser Load (7.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/user_tags_controller.rb:25
+  Rendering user_tags/new.html.erb within layouts/application
+  [1m[36mTopic Load (27.8ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/user_tags/_form.html.erb:6
+  Rendered user_tags/_form.html.erb (59.0ms)
+  [1m[36mUserTag Load (23.3ms)[0m  [1m[34mSELECT "user_tags".* FROM "user_tags" WHERE "user_tags"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/user_tags/new.html.erb:4
+  [1m[36mTopic Load (1.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mTopic Load (25.6ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mCACHE Topic Load (0.8ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  Rendered user_tags/new.html.erb within layouts/application (148.6ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (7.9ms)
+  Rendered layouts/_messages.html.erb (0.8ms)
+Completed 200 OK in 474ms (Views: 352.6ms | ActiveRecord: 86.3ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2018-12-17 18:29:23 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41
+  [1m[36mPairing Load (7.5ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:46
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (6.0ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (4.0ms)
+  Rendered layouts/_messages.html.erb (1.6ms)
+Completed 200 OK in 110ms (Views: 95.3ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/users/5" for 127.0.0.1 at 2018-12-17 18:32:25 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (8.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:41
+  [1m[36mPairing Load (5.8ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:46
+  Rendering users/show.html.erb within layouts/application
+  Rendered user_tags/_form.html.erb (10.4ms)
+  Rendered users/show.html.erb within layouts/application (27.3ms)
+Completed 500 Internal Server Error in 72ms (ActiveRecord: 14.0ms)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h2> Become a Mentor! </h2>
+    2: 
+    3: <%= form_for @user_tags do |f| %>
+    4: <div class="field">
+    5:   <%= f.label :topic %>
+    6:   <%= f.collection_select :topic_id, Topic.all, :id, :topic, :include_blank => true %>
+  
+app/views/user_tags/_form.html.erb:3:in `_app_views_user_tags__form_html_erb__2346723556693749501_70295535540160'
+app/views/users/show.html.erb:16:in `_app_views_users_show_html_erb___2944485319742907208_70295535652760'
+Started GET "/users/5" for 127.0.0.1 at 2018-12-17 18:33:50 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42
+  [1m[36mPairing Load (0.2ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:47
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mTopic Load (0.5ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/user_tags/_form.html.erb:6
+  Rendered user_tags/_form.html.erb (15.3ms)
+  Rendered users/show.html.erb within layouts/application (19.2ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (4.6ms)
+  Rendered layouts/_messages.html.erb (0.9ms)
+Completed 200 OK in 354ms (Views: 129.7ms | ActiveRecord: 145.6ms)
+
+
+Started GET "/user_tags/new" for 127.0.0.1 at 2018-12-17 18:45:54 -0800
+Processing by UserTagsController#new as HTML
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/user_tags_controller.rb:25
+  Rendering user_tags/new.html.erb within layouts/application
+  [1m[36mTopic Load (0.9ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/user_tags/_form.html.erb:6
+  Rendered user_tags/_form.html.erb (28.1ms)
+  [1m[36mUserTag Load (1.1ms)[0m  [1m[34mSELECT "user_tags".* FROM "user_tags" WHERE "user_tags"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/user_tags/new.html.erb:4
+  [1m[36mTopic Load (0.4ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mTopic Load (1.3ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  [1m[36mTopic Load (0.4ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/user_tags/new.html.erb:6
+  Rendered user_tags/new.html.erb within layouts/application (66.2ms)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/layouts/_navigation.html.erb:46
+  Rendered layouts/_navigation.html.erb (98.3ms)
+  Rendered layouts/_messages.html.erb (2.5ms)
+Completed 200 OK in 955ms (Views: 921.3ms | ActiveRecord: 6.4ms)
+
+

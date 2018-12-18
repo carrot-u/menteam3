@@ -13,6 +13,8 @@
 <p><strong>Position:</strong> <%= @user.position %></p>
 <p><strong>Bio:</strong> <%= @user.bio %></p>
 
+<%= render partial: 'user_tags/form'%>
+
 <%= link_to "View your mentors and mentees", pairings_path(:id => @user.id)%></br>
 
 <% request = 'Request' %>
@@ -25,6 +27,8 @@
 <div>
 <%= link_to 'Edit Profile', edit_user_path %>
 </div>
+
+
 
 </body>
 </html>
