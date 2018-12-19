@@ -14,7 +14,7 @@ class UserTagsController < ApplicationController
     @user_tags.topic_id = params[:user_tag][:topic_id]
     @user_tags.user_id = @user.id
     @user_tags.save
-    redirect_to new_user_tag_path
+    redirect_to users_path
   end
 
 
