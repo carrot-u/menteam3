@@ -39,7 +39,7 @@ class UsersController < ApplicationController
 
   def show
     @user_tags = UserTag.new
-    @user_tags_list = UserTag.where(user_id: User.find(session[:user_id]))
+    @user_tags_list = UserTag.where(user_id: session[:user_id])
     @user = User.find(session[:user_id])
 
     redirect_to @user if session[:user_id] != params[:id].to_i
