@@ -19,6 +19,7 @@ class User < ApplicationRecord
   has_many :comments
 
   has_many :topics, through: :user_tags
+  has_many :user_tags
 
   def name
     "#{first_name} #{last_name}"
@@ -37,4 +38,23 @@ class User < ApplicationRecord
     end
   end
 
+
+
+  def self.tagged_with(topic)
+   Tag.find_by!(topic: topic).users
+ end
+
+ def self.tag_counts
+   Tag.select('topics.*, count(user_tags.topic_id) as count').joins(:user_tags).group('user_tags.topic_id')
+ end
+
+ def tag_list
+   topics.map(&:topic).join(', ')
+ end
+
+ def tag_list=(topics)
+   self.tags = topics.split(',').map do |n|
+     Tag.where(topic: n.strip).first_or_create!
+   end
+ end
 end

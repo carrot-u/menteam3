@@ -52,13 +52,14 @@ class UsersController < ApplicationController
     end
     @pending_mentor_request
 
+    params[:topic] ? @users = User.tagged_with(params[:topic]) : @users = User.all
 
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :position, :password)
+    params.require(:user).permit(:first_name, :last_name, :email, :position, :password, :tag_list, :topic, { topic_ids: [] }, :topic_ids)
   end
 
 end

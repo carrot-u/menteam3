@@ -34,6 +34,16 @@
 <%= link_to 'Edit Profile', edit_user_path %>
 </div>
 
+<%= render 'form', user: @user %>
+
+<h1>Mentoring For</h1>
+<div class = "col-md-8 offset-2">
+  <% @users.each do |user| %>
+    <p><small>Topics: <%= raw user.topics.map(&:topic).map { |t| link_to t, tag_path(t) }.join(', ') %></small</p>
+    <p><%= link_to "Profile", users_path(user) %></p>
+  <% end %>
+</div>
+
 
 
 </body>

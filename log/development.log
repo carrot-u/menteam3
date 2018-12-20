@@ -1,0 +1,335 @@
+Started GET "/users/5" for 127.0.0.1 at 2018-12-19 23:35:26 -0800
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/svetamohan/.rbenv/versions/2.3.7/lib/ruby/gems/2.3.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+Completed 500 Internal Server Error in 105ms (ActiveRecord: 85.1ms)
+
+
+  
+SyntaxError (/Users/svetamohan/menteam-prototype/menteam3/app/models/user.rb:62: syntax error, unexpected keyword_end, expecting end-of-input):
+  
+app/models/user.rb:62: syntax error, unexpected keyword_end, expecting end-of-input
+app/controllers/users_controller.rb:42:in `show'
+Started GET "/users/5" for 127.0.0.1 at 2018-12-19 23:36:00 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (20.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43
+  [1m[36mPairing Load (6.3ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:48
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mTopic Load (12.0ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/user_tags/_form.html.erb:6
+  Rendered user_tags/_form.html.erb (37.7ms)
+  [1m[36mUserTag Load (19.9ms)[0m  [1m[34mSELECT "user_tags".* FROM "user_tags" WHERE "user_tags"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/users/show.html.erb:18
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/views/users/show.html.erb:37
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/views/users/show.html.erb:37
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/views/users/show.html.erb:37
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/views/users/show.html.erb:37
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/views/users/show.html.erb:37
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/views/users/show.html.erb:37
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/views/users/show.html.erb:37
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  ↳ app/views/users/show.html.erb:37
+  Rendered users/_form.html.erb (305.1ms)
+  Rendered users/show.html.erb within layouts/application (378.4ms)
+Completed 500 Internal Server Error in 492ms (ActiveRecord: 83.3ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `ztrue' for #<#<Class:0x00007fbc573d4c88>:0x00007fbc573ce798>):
+    1: <div class = 'col-md-8 offset-2'>
+    2:   <h1 class = "text-center">New Blog Post</h1>
+    3:   <%= simple_form_for @user, url: users_path do |f| %>
+    4:     <%= f.input :tag_ids, as: :select, collection: Topic.order(:topic), label_method: :topic, input_html: {multiple: ztrue} %>
+    5:     <%= f.submit "Next", class: 'btn btn-lg btn-primary float-right' %>
+    6:   <% end %>
+    7: </div>
+  
+app/views/users/_form.html.erb:4:in `block in _app_views_users__form_html_erb___3513113181197670826_70223471368780'
+app/views/users/_form.html.erb:3:in `_app_views_users__form_html_erb___3513113181197670826_70223471368780'
+app/views/users/show.html.erb:37:in `_app_views_users_show_html_erb__1120990573234429139_70223447109680'
+Started GET "/users/5" for 127.0.0.1 at 2018-12-19 23:38:57 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43
+  [1m[36mPairing Load (0.5ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:48
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mTopic Load (0.4ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/user_tags/_form.html.erb:6
+  Rendered user_tags/_form.html.erb (4.5ms)
+  [1m[36mUserTag Load (1.7ms)[0m  [1m[34mSELECT "user_tags".* FROM "user_tags" WHERE "user_tags"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/users/show.html.erb:18
+  [1m[36mTopic Load (0.5ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (7.2ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."topic" ASC[0m
+  ↳ app/views/users/_form.html.erb:4
+  Rendered users/_form.html.erb (21.8ms)
+  Rendered users/show.html.erb within layouts/application (76.8ms)
+Completed 500 Internal Server Error in 94ms (ActiveRecord: 12.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `tag_ids' for #<User:0x00007fbc5d0721e8>
+Did you mean?  tag_list):
+    1: <div class = 'col-md-8 offset-2'>
+    2:   <h1 class = "text-center">New Blog Post</h1>
+    3:   <%= simple_form_for @user, url: users_path do |f| %>
+    4:     <%= f.input :tag_ids, as: :select, collection: Topic.order(:topic), label_method: :topic, input_html: {multiple: true} %>
+    5:     <%= f.submit "Next", class: 'btn btn-lg btn-primary float-right' %>
+    6:   <% end %>
+    7: </div>
+  
+app/views/users/_form.html.erb:4:in `block in _app_views_users__form_html_erb___3513113181197670826_70223449144260'
+app/views/users/_form.html.erb:3:in `_app_views_users__form_html_erb___3513113181197670826_70223449144260'
+app/views/users/show.html.erb:37:in `_app_views_users_show_html_erb__1120990573234429139_70223449991100'
+Started GET "/users/5" for 127.0.0.1 at 2018-12-19 23:39:22 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43
+  [1m[36mPairing Load (0.3ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:48
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mTopic Load (1.1ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/user_tags/_form.html.erb:6
+  Rendered user_tags/_form.html.erb (5.8ms)
+  [1m[36mUserTag Load (1.3ms)[0m  [1m[34mSELECT "user_tags".* FROM "user_tags" WHERE "user_tags"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/users/show.html.erb:18
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (2.3ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.3ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."topic" ASC[0m
+  ↳ app/views/users/_form.html.erb:4
+  Rendered users/_form.html.erb (25.2ms)
+  Rendered users/show.html.erb within layouts/application (68.8ms)
+Completed 500 Internal Server Error in 79ms (ActiveRecord: 7.0ms)
+
+
+  
+ActionView::Template::Error (Could not find the source association(s) "topic" or :topics in model UserTag. Try 'has_many :topics, :through => :user_tags, :source => <name>'. Is it one of ?):
+    1: <div class = 'col-md-8 offset-2'>
+    2:   <h1 class = "text-center">New Blog Post</h1>
+    3:   <%= simple_form_for @user, url: users_path do |f| %>
+    4:     <%= f.input :topic_ids, as: :select, collection: Topic.order(:topic), label_method: :topic, input_html: {multiple: true} %>
+    5:     <%= f.submit "Next", class: 'btn btn-lg btn-primary float-right' %>
+    6:   <% end %>
+    7: </div>
+  
+app/views/users/_form.html.erb:4:in `block in _app_views_users__form_html_erb___3513113181197670826_70223446534780'
+app/views/users/_form.html.erb:3:in `_app_views_users__form_html_erb___3513113181197670826_70223446534780'
+app/views/users/show.html.erb:37:in `_app_views_users_show_html_erb__1120990573234429139_70223449765000'
+Started GET "/users/5" for 127.0.0.1 at 2018-12-20 11:14:14 -0800
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/svetamohan/.rbenv/versions/2.3.7/lib/ruby/gems/2.3.0/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (16.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43
+  [1m[36mPairing Load (6.8ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:48
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mTopic Load (7.1ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/user_tags/_form.html.erb:6
+  Rendered user_tags/_form.html.erb (47.3ms)
+  [1m[36mUserTag Load (18.1ms)[0m  [1m[34mSELECT "user_tags".* FROM "user_tags" WHERE "user_tags"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/users/show.html.erb:18
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (1.1ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."topic" ASC[0m
+  ↳ app/views/users/_form.html.erb:4
+  Rendered users/_form.html.erb (47.5ms)
+  Rendered users/show.html.erb within layouts/application (140.0ms)
+Completed 500 Internal Server Error in 298ms (ActiveRecord: 108.5ms)
+
+
+  
+ActionView::Template::Error (Could not find the source association(s) "topic" or :topics in model UserTag. Try 'has_many :topics, :through => :user_tags, :source => <name>'. Is it one of ?):
+    1: <div class = 'col-md-8 offset-2'>
+    2:   <h1 class = "text-center">New Blog Post</h1>
+    3:   <%= simple_form_for @user, url: users_path do |f| %>
+    4:     <%= f.input :topic_ids, as: :select, collection: Topic.order(:topic), label_method: :topic, input_html: {multiple: true} %>
+    5:     <%= f.submit "Next", class: 'btn btn-lg btn-primary float-right' %>
+    6:   <% end %>
+    7: </div>
+  
+app/views/users/_form.html.erb:4:in `block in _app_views_users__form_html_erb__3461661787872309554_70289469178420'
+app/views/users/_form.html.erb:3:in `_app_views_users__form_html_erb__3461661787872309554_70289469178420'
+app/views/users/show.html.erb:37:in `_app_views_users_show_html_erb___4040524960543904098_70289469662620'
+Started GET "/users/5" for 127.0.0.1 at 2018-12-20 11:14:22 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:42
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:43
+  [1m[36mPairing Load (1.3ms)[0m  [1m[34mSELECT "pairings".* FROM "pairings" WHERE "pairings"."mentor_id" = $1[0m  [["mentor_id", 5]]
+  ↳ app/controllers/users_controller.rb:48
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mTopic Load (0.4ms)[0m  [1m[34mSELECT "topics".* FROM "topics"[0m
+  ↳ app/views/user_tags/_form.html.erb:6
+  Rendered user_tags/_form.html.erb (3.0ms)
+  [1m[36mUserTag Load (0.5ms)[0m  [1m[34mSELECT "user_tags".* FROM "user_tags" WHERE "user_tags"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/users/show.html.erb:18
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.2ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mCACHE Topic Load (0.0ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.1ms)[0m  [1m[34mSELECT  "topics".* FROM "topics" WHERE "topics"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:20
+  [1m[36mTopic Load (0.7ms)[0m  [1m[34mSELECT "topics".* FROM "topics" ORDER BY "topics"."topic" ASC[0m
+  ↳ app/views/users/_form.html.erb:4
+  Rendered users/_form.html.erb (5.4ms)
+  Rendered users/show.html.erb within layouts/application (31.7ms)
+Completed 500 Internal Server Error in 53ms (ActiveRecord: 6.5ms)
+
+
+  
+ActionView::Template::Error (Could not find the source association(s) "topic" or :topics in model UserTag. Try 'has_many :topics, :through => :user_tags, :source => <name>'. Is it one of ?):
+    1: <div class = 'col-md-8 offset-2'>
+    2:   <h1 class = "text-center">New Blog Post</h1>
+    3:   <%= simple_form_for @user, url: users_path do |f| %>
+    4:     <%= f.input :topic_ids, as: :select, collection: Topic.order(:topic), label_method: :topic, input_html: {multiple: true} %>
+    5:     <%= f.submit "Next", class: 'btn btn-lg btn-primary float-right' %>
+    6:   <% end %>
+    7: </div>
+  
+app/views/users/_form.html.erb:4:in `block in _app_views_users__form_html_erb__3461661787872309554_70289468449680'
+app/views/users/_form.html.erb:3:in `_app_views_users__form_html_erb__3461661787872309554_70289468449680'
+app/views/users/show.html.erb:37:in `_app_views_users_show_html_erb___4040524960543904098_70289468939320'
