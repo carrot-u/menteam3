@@ -2,8 +2,7 @@
 
 <%= simple_form_for @user_tags do |f| %>
 <div class="field">
-  <%# <%= f.input :topic %> %>
-  <%= f.input :topic_id, as: :select, collection: Topic.all, label_method: :topic, input_html: {multiple: true} %>
+  <%= f.input :topic_id, as: :select, collection: Topic.all, label: false, input_html: {multiple: true} %>
 </div>
 
 <div class="field">
