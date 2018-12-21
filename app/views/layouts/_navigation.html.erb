@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
   <% home = '' %>
   <% if logged_in? %>
-    <% home = user_path(session[:user_id]) %> 
+    <% home = posts_path %> 
   <% else %>
     <% home = root_path %>
   <% end %>
