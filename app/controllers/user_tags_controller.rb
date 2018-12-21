@@ -9,11 +9,16 @@ class UserTagsController < ApplicationController
 
 
   def create
+    topic_ids = params[:user_tag][:topic_id].select {|tag| tag.present? }
+    topic_ids.each do |topic_id|
+      @user_tags  = UserTag.new
+      @user_tags.topic_id = topic_id
+      @user_tags.user_id = @user.id
+      @user_tags.save
+    end
+
     # @user_tags = UserTag.create(params[@user.id, :topic_id])
-    @user_tags  = UserTag.new
-    @user_tags.topic_id = params[:user_tag][:topic_id]
-    @user_tags.user_id = @user.id
-    @user_tags.save
+
     redirect_to users_path
   end
 
