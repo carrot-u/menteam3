@@ -1,22 +1,40 @@
-<h1>Mentor Pairings </h1>
+
+<h1 class="text-center">Mentor Pairings</h1>
 
 <h2> Mentors </h2>
-    <% @list_of_mentor_pairings.each do |pairing| %>
-        <% user_mentor = User.find(pairing.mentor_id) %>
-        <p> <%= user_mentor.first_name %>  | 
-        <%= link_to "Post a question", new_post_path(:pairing_id => pairing.id) %><h2>
-        </p>
 
-    <% end %> 
+<div class="row">
+  <% @list_of_mentor_pairings.each do |pairing| %>
+    <% user_mentor = User.find(pairing.mentor_id) %>
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= user_mentor.first_name %></h5>
+            <a href="#" class="btn btn-primary"><%= link_to "Post a question", new_post_path(:pairing_id => pairing.id) %></a>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>
+<br>
+<br>
 
 <h2> Mentees </h2>
-    <% @list_of_mentee_pairings.each do |pairing| %>
-        <% user_mentee = User.find(pairing.mentee_id) %>
-        <p> <%= user_mentee.first_name %>  | 
-        <%= link_to "Post a question", new_post_path(:pairing_id => pairing.id) %><h2>
-        </p>
 
-    <% end %> 
+<div class="row">
+  <% @list_of_mentee_pairings.each do |pairing| %>
+    <% user_mentee = User.find(pairing.mentee_id) %>
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= user_mentee.first_name %></h5>
+            <a href="#" class="btn btn-primary"> <%= link_to "Post a question", new_post_path(:pairing_id => pairing.id) %></a>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>
+
 
 
  
