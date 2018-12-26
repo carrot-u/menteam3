@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-   if @user.update(user_params)
+   if @user.update_attributes(user_params)
      flash[:notice] = "Your profile was updated"
      redirect_to user_path(@user)
    else
@@ -31,6 +31,7 @@ class UsersController < ApplicationController
       #format.html {redirect_to user_path(@user), notice: 'Your account has been created!'}
       redirect_to @user
     else
+      flash[:error] = @user.errors.full_messages.to_sentence
       render 'new'
       #format.html {render :new}
     end
@@ -58,7 +59,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :position, :password)
+    params.require(:user).permit(:first_name, :last_name, :email, :position, :password, :bio, :password_confirmation)
   end
 
 end
