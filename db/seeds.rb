@@ -5,3 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+# topics = [{topic: 'SQL'}, {topic: 'Ruby'}, {topic: 'Python'},
+#   {topic: 'Ruby on Rails'}, {topic: 'Product Management'},
+#   {topic: 'Javascript'}, {topic: 'React'},
+#   {topic: 'HTML/CSS'}, {topic: 'UI/UX Design'},
+#   {topic: 'Swift'}, {topic: 'C++'}, {topic: 'Java'}]]
+#
+# topics.map { |topic| Topic.where(topic).first_or_create }
