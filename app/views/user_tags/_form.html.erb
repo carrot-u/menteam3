@@ -1,9 +1,8 @@
 <h2> Become a Mentor! </h2>
 
-<%= form_for @user_tags do |f| %>
+<%= simple_form_for @user_tags do |f| %>
 <div class="field">
-  <%= f.label :topic %>
-  <%= f.collection_select :topic_id, Topic.all, :id, :topic, :include_blank => true %>
+  <%= f.input :topic_id, as: :select, collection: Topic.all, label_method: :topic, input_html: {multiple: true} %>
 </div>
 
 <div class="field">

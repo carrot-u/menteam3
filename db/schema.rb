@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 2018_11_29_082737) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "pairing_id"
-    t.bigint "user_id"
+    t.integer "pairing_id"
+    t.integer "user_id"
     t.index ["pairing_id"], name: "index_posts_on_pairing_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
@@ -55,8 +55,8 @@ ActiveRecord::Schema.define(version: 2018_11_29_082737) do
   create_table "user_tags", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
-    t.bigint "topic_id"
+    t.integer "user_id"
+    t.integer "topic_id"
     t.index ["topic_id"], name: "index_user_tags_on_topic_id"
     t.index ["user_id"], name: "index_user_tags_on_user_id"
   end
@@ -74,8 +74,4 @@ ActiveRecord::Schema.define(version: 2018_11_29_082737) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
-  add_foreign_key "posts", "pairings"
-  add_foreign_key "posts", "users"
-  add_foreign_key "user_tags", "topics"
-  add_foreign_key "user_tags", "users"
 end

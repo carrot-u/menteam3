@@ -8,7 +8,7 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, on: :create
 
   # has_many :pairings
   has_many :mentee_pairings, class_name: 'Pairing', foreign_key: 'mentee_id'

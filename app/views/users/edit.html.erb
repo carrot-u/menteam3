@@ -1,6 +1,6 @@
 <body>
 
-<h1>Please fill in the following information</h1>
+<h1>Update your Profile</h1>
 
 <%= form_for(@user) do |f| %>
   <%= f.label :first_name %>:
@@ -15,14 +15,14 @@
   <%= f.label :position %>:
   <%= f.text_field :position %><br />
 
+  <%#<%= f.label :password %>
+  <%#<%= f.password_field :password %>
+
+  <%#<%= f.label :password_confirmation %>
+  <%#<%= f.password_field :password_confirmation %>
+
   <%= f.label :bio %>:
   <%= f.text_area :bio %><br />
-
-  <%= f.label :password %>:
-  <%= f.password_field :password %><br />
-
-  <%= f.label :password_confirmation %>:
-  <%= f.password_field :password_confirmation %><br />
 
   <%= f.submit 'Submit' %>
 <% end %>
