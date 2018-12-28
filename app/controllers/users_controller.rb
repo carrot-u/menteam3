@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    redirect_to user_path(:id => session[:user_id]) if session[:user_id]
+    redirect_to posts_path if session[:user_id]
   end
 
   def new
