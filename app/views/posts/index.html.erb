@@ -1,27 +1,32 @@
-<h1> All your Questions </h1>
-<p>
-<%# <%= link_to "Create a new Question", new_post_path %> 
-</p>
+<div class='container' id='message_parent'>
+    <div class='row'>
+        <div class='col-12 col-md-10' id='post_parent'>
+            <h2 id='message_header'>Messages</h2>
+            <% @post.each do |post| %>
+                <div class='container'id='post_card'>
+                    <div class='row'>
+                        <div class='col'>
+                            <h3 id='post_subject'><%= link_to post.subject, post_path(post.id) %></h3>
+                            <% user = User.find(post.user_id)%>
+                            <h6 id='post_author'>Author: <%=user.first_name %></h6><br>
+                            <p><%= post.body %><p>
+                            <div>
+                                <h6 id='comment_header'>Comments:</h6>
+                                <% post.comments.each do |comment| %>
+                                    <% comment_author = User.find(comment.user_id).first_name%>
+                                    <h6 id='comment_author'><%= comment_author + ' says:'%></h6>
+                                    <p><%= comment.comment %></p>
+                                <% end %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+        <div class='col-6 col-md-2'id='conversation_parent'>
+            <h2>Conversations</h2>
+        </div>
+    </div>
+</div>
 
-<table>
-    <tr>
-        <th>Subject</th>
-        <th>Body</th>
-        <th>Author</th>
-    </tr>
-    <% @post.each do |post| %>
-    <tr>
-        <td> <%= post.subject %> </td> 
-        <td <%= post.body %> </td>
-        <% user = User.find(post.user_id)%> 
-        <td> <%= user.first_name %> </td>
-        <td> <%=link_to 'Edit', edit_post_path(post.id, pairing_id: post.pairing_id) %> </td>
-        <td> <%=link_to 'Show', post_path(post.id) %> </td>
-        <td> <%=link_to 'Remove', post_path(post.id), method: :delete, data: {confirm: "Are you sure you want to delet your question?"} %> </td>
-    </tr>
-    <% end %>
 
-</table>
-
-<%= link_to 'Inbox', posts_path %></br>
-<%= link_to 'Profile', user_path(:id => session[:user_id]) %>
