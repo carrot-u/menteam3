@@ -104,3 +104,52 @@
   color: orange;
   font-weight: bold;
  }
+
+ #post_card {
+   border-style: solid;
+   border-color: lightgray;
+   border-width: 2px;
+   border-radius: 15px;
+   margin: 8px;
+   padding: 5px 20px;
+   background-color: #FAFAFA;
+ }
+
+ #post_subject {
+  margin-bottom: 0px;
+  padding-bottom: 10px;
+ }
+
+ #post_author {
+   font-size: 13px;
+   margin-top: 0px;
+   padding-top: 0px;
+ }
+
+ #post_parent {
+   margin-left: 0px;
+   padding-left: 0px;
+ }
+
+ #message_parent {
+  margin-left: 0px;
+  margin-top: 30px;
+  padding-left: 0px;
+}
+
+#conversation_parent {
+  border-left: solid 1px lightgray;
+}
+
+#message_header {
+  padding-left: 7.5px;
+  margin-bottom: 10px;
+}
+
+#comment_header {
+  margin-bottom: 15px;
+}
+
+#comment_author {
+  font-size: 13px;
+}
