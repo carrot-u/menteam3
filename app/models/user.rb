@@ -37,4 +37,16 @@ class User < ApplicationRecord
     end
   end
 
+  def mentor_pairings_with_post
+    mentor_pairings.map do |pairing|
+      pairing unless pairing.posts.nil?
+    end
+  end
+
+  def mentee_pairings_with_post
+    mentee_pairings.map do |pairing|
+      pairing unless pairing.posts.nil?
+    end
+  end
+
 end
