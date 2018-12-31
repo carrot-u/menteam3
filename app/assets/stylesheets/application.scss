@@ -134,6 +134,7 @@
  #message_parent {
   margin-left: 0px;
   margin-top: 30px;
+  margin-bottom: 60px;
   padding-left: 0px;
 }
 
@@ -147,9 +148,35 @@
 }
 
 #comment_header {
-  margin-bottom: 15px;
+  margin-bottom: 8px;
 }
 
 #comment_author {
   font-size: 13px;
+}
+
+#post_body {
+  margin-top: 15px;
+}
+
+#conversation_header {
+  margin-bottom: 10px;
+}
+
+#conversation_mentors_header {
+  margin: 10px 0;
+}
+
+#conversation_mentees_header {
+  margin: 10px 0;
+}
+
+#conversation_mentors {
+  margin-bottom: 35px;
+}
+
+#show_more_comments {
+  font-size: 12px;
+  margin-top: 0px;
+  margin-bottom: 20px;
 }

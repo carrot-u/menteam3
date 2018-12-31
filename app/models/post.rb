@@ -7,4 +7,11 @@ class Post < ApplicationRecord
     belongs_to :user
     belongs_to :pairing
     has_many :comments
+
+    def receiving_user
+        pairing = Pairing.find(pairing_id)
+        receiving_user = user_id == pairing.mentor_id ? User.find(pairing.mentee_id) : User.find(pairing.mentor_id)
+        receiving_user
+    end
+
 end
