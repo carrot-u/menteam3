@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<h1>Welcome to your profile!!!</h1>
+<h1 class= "text-center welcome" >Welcome to your profile</h1>
 
 <p><strong>First Name:</strong> <%= @user.first_name%></p>
 <p><strong>Last Name:</strong> <%= @user.last_name %></p>
@@ -14,7 +14,7 @@
 <p><strong>Bio:</strong> <%= @user.bio %></p>
 
 <%= render partial: 'user_tags/form'%>
-<h2> Mentoring for the following topics:</h2>
+<h2 class="title"> Mentoring for the following topics:</h2>
 <% @user_tags_list.each do |user_selection| %>
 
   <li><%= topic_name = Topic.find(user_selection.topic_id).topic %></li>
