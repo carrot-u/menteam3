@@ -12,11 +12,20 @@
                                 <span id='post_author'><strong>To:</strong> <%= post.receiving_user.first_name %></span><br>
                             <p id='post_body'><%= post.body %><p>
                             <div>
-                                <h6 id='comment_header'><em>Comments:</em></h6>
-                                <% post.comments.each do |comment| %>
-                                    <% comment_author = User.find(comment.user_id).first_name%>
-                                    <h6 id='comment_author'><%= comment_author + ' says:'%></h6>
-                                    <p><%= comment.comment %></p>
+                                <h6 id='comment_header'><strong><em>Comments:</em></strong></h6>
+                                <% if post.comments.length > 3%>
+                                    <h6 id='show_more_comments'><em>Show previous <%= post.comments.length - 3 %> comments</em></h6>
+                                    <% post.comments.last(3).each do |comment| %>
+                                        <% comment_author = User.find(comment.user_id).first_name%>
+                                        <h6 id='comment_author'><%= comment_author + ' says:'%></h6>
+                                        <p><%= comment.comment %></p>
+                                    <% end %>
+                                <% else %>
+                                    <% post.comments.each do |comment| %>
+                                        <% comment_author = User.find(comment.user_id).first_name%>
+                                        <h6 id='comment_author'><%= comment_author + ' says:'%></h6>
+                                        <p><%= comment.comment %></p>
+                                    <% end %>
                                 <% end %>
                             </div>
                         </div>
