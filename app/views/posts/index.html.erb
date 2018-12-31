@@ -7,15 +7,25 @@
                     <div class='row'>
                         <div class='col'>
                             <h3 id='post_subject'><%= link_to post.subject, post_path(post.id) %></h3>
-                            <% user = User.find(post.user_id)%>
-                            <h6 id='post_author'>Author: <%=user.first_name %></h6><br>
-                            <p><%= post.body %><p>
+                            <% author_first_name = User.find(post.user_id).first_name%>   
+                                <span id='post_author'><strong>Author:</strong> <%= author_first_name %></span>
+                                <span id='post_author'><strong>To:</strong> <%= post.receiving_user.first_name %></span><br>
+                            <p id='post_body'><%= post.body %><p>
                             <div>
-                                <h6 id='comment_header'>Comments:</h6>
-                                <% post.comments.each do |comment| %>
-                                    <% comment_author = User.find(comment.user_id).first_name%>
-                                    <h6 id='comment_author'><%= comment_author + ' says:'%></h6>
-                                    <p><%= comment.comment %></p>
+                                <h6 id='comment_header'><strong><em>Comments:</em></strong></h6>
+                                <% if post.comments.length > 3%>
+                                    <h6 id='show_more_comments'><em>Show previous <%= post.comments.length - 3 %> comments</em></h6>
+                                    <% post.comments.last(3).each do |comment| %>
+                                        <% comment_author = User.find(comment.user_id).first_name%>
+                                        <h6 id='comment_author'><%= comment_author + ' says:'%></h6>
+                                        <p><%= comment.comment %></p>
+                                    <% end %>
+                                <% else %>
+                                    <% post.comments.each do |comment| %>
+                                        <% comment_author = User.find(comment.user_id).first_name%>
+                                        <h6 id='comment_author'><%= comment_author + ' says:'%></h6>
+                                        <p><%= comment.comment %></p>
+                                    <% end %>
                                 <% end %>
                             </div>
                         </div>
@@ -24,7 +34,19 @@
             <% end %>
         </div>
         <div class='col-6 col-md-2'id='conversation_parent'>
-            <h2>Conversations</h2>
+            <h2 id='conversation_header'>Conversations</h2>
+            <h5 id='conversation_mentors_header'><em>Mentors:</em> </h5>
+            <div id='conversation_mentors'>
+                <% @user.mentee_pairings_with_post.each do |pairing| %>
+                    <h6><%= User.find(pairing.mentor_id).first_name %></h6>
+                <% end %>
+            </div>
+            <h5 id='conversation_mentees_header'><em>Mentees:</em> </h5>
+            <div id='conversation_mentees'>
+                <% @user.mentor_pairings_with_post.each do |pairing| %>
+                    <h6><%= User.find(pairing.mentee_id).first_name %></h6>
+                <% end %> 
+            </div>
         </div>
     </div>
 </div>
