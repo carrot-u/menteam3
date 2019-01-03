@@ -7,8 +7,12 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     @pairing = Pairing.new
     @user_tags = UserTag.where(topic_id: @topic.id).pluck(:user_id)
-    @mentors = User.find(@user_tags)
-    
+    @mentors = []
+    @user_tags.each { |id| 
+      if id != session[:user_id]
+        @mentors << User.find(id)
+      end
+    }
   end
 
 end

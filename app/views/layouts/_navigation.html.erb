@@ -90,7 +90,7 @@
       <li class="sec-nav-li"> 
         <% find_mentor = '' %>
         <% if logged_in? %>
-          <% find_mentor = topics_path(session[:user_id]) %> 
+          <% find_mentor = topics_path %> 
         <% else %>
           <% find_mentor = root_path %>
         <% end %>

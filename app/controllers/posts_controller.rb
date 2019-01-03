@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :user, only: [:index, :new, :create, :edit, :show, :destroy, :update]
-  before_action :pairing, only: [:new, :create, :edit]
+  before_action :pairing, only: [:new, :create]
   before_action :set_post, only: [:edit, :show, :destroy, :update]
     
     def index 
@@ -47,7 +47,8 @@ class PostsController < ApplicationController
     end
 
     def edit
-      
+      @post = Post.find(params[:id])
+      @pairing = Pairing.find(@post.pairing_id)
     end
 
     def destroy
