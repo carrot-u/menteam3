@@ -1,4 +1,4 @@
-<h2 class="title text-center"> Become a Mentor </h2>
+<h3 class="title text-center"> Become a Mentor </h3>
 
 <%= simple_form_for @user_tags do |f| %>
 <div class="field">
@@ -6,6 +6,6 @@
 </div>
 
 <div class="field">
-  <%= f.submit 'Sign Up' %>
+  <%= f.submit 'Sign Up', :class => "btn font-weight-bold border-secondary btnpairing float-right" %>
 </div>
 <% end %>

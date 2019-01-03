@@ -44,17 +44,17 @@
     <div class="btn-group" role="group" aria-label="Basic example">
       <% if logged_in? %>
         <% user = User.find(session[:user_id]) %>
-        <button type="button" class="btn btn-outline-success pull-right">
+        <button type="button" class="btn btn-outline-light pull-right">
           <%= link_to user.first_name, user_path(session[:user_id]), class: "navbtn" %>
         </button>
       <% else %> 
-        <button type="button" class="btn btn-outline-success pull-right">
+        <button type="button" class="btn btn-outline-light pull-right">
           <%= link_to "Login", login_path, class: "navbtn" %>
         </button>
       <% end %>
  
 
-        <button type="button" class="btn btn-outline-success pull-right">
+        <button type="button" class="btn btn-outline-light pull-right">
           <%= link_to "Log out", logout_path, method: :delete, class: "navbtn" %> 
         </button>
     </div>

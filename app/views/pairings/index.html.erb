@@ -1,17 +1,19 @@
 
+<br>
+
 <h1 class= "text-center header">Mentor Pairings</h1>
 
-<h2 class="title"> Mentors </h2>
+<h2 class="title2"> Mentors </h2>
+<br>
 
 <div class="row">
   <% @list_of_mentor_pairings.each do |pairing| %>
     <% user_mentor = User.find(pairing.mentor_id) %>
       <div class="col-sm-3">
-        <div class="card bg-success">
+        <div class="card bg-secondary">
           <div class="card-body">
-            <h5 class="card-title text-warning"><%= user_mentor.first_name %></h5>
-              <%= link_to "Post a question", new_post_path(:pairing_id => pairing.id), :class => "btn font-weight-bold border-warning btn-primary bg-light text-dark" %>
-
+            <h2 class="card-title text-light"><%= user_mentor.first_name %></h2>
+              <%= link_to "Post a question", new_post_path(:pairing_id => pairing.id), :class => "btn font-weight-bold border-secondary btnpairing" %>
           </div>
         </div>
       </div>
@@ -20,16 +22,17 @@
 <br>
 <br>
 
-<h2 class="title"> Mentees </h2>
+<h2 class="title2"> Mentees </h2>
+<br>
 
 <div class="row">
   <% @list_of_mentee_pairings.each do |pairing| %>
     <% user_mentee = User.find(pairing.mentee_id) %>
       <div class="col-sm-3">
-        <div class="card bg-success">
+        <div class="card bg-secondary">
           <div class="card-body">
-            <h5 class="card-title text-warning"><%= user_mentee.first_name %></h5>
-             <%= link_to "Post a question", new_post_path(:pairing_id => pairing.id), :class => "btn font-weight-bold border-warning btn-primary bg-light text-dark" %>
+            <h2 class="card-title text-warning"><%= user_mentee.first_name %></h2>
+             <%= link_to "Post a question", new_post_path(:pairing_id => pairing.id), :class => "btn font-weight-bold border-secondary text-dark btn-pairing" %>
           </div>
         </div>
       </div>
