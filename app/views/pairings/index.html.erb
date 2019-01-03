@@ -2,8 +2,10 @@
 <br>
 
 <h1 class= "text-center header">Mentor Pairings</h1>
+<br>
+<br>
 
-<h2 class="title2"> Mentors </h2>
+<h2 class="title2"> Your Mentors </h2>
 <br>
 
 <div class="row">
@@ -22,7 +24,7 @@
 <br>
 <br>
 
-<h2 class="title2"> Mentees </h2>
+<h2 class="title2"> Your Mentees </h2>
 <br>
 
 <div class="row">
@@ -31,8 +33,8 @@
       <div class="col-sm-3">
         <div class="card bg-secondary">
           <div class="card-body">
-            <h2 class="card-title text-warning"><%= user_mentee.first_name %></h2>
-             <%= link_to "Post a question", new_post_path(:pairing_id => pairing.id), :class => "btn font-weight-bold border-secondary text-dark btn-pairing" %>
+            <h2 class="card-title text-light"><%= user_mentee.first_name %></h2>
+             <%= link_to "Post a question", new_post_path(:pairing_id => pairing.id), :class => "btn font-weight-bold border-secondary btnpairing" %>
           </div>
         </div>
       </div>

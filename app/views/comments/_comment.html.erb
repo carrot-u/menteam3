@@ -1,16 +1,15 @@
 <div>
-        <div>
-            <strong>
-                <%= User.find(comment.user_id).first_name %>
-
-                says: 
-            </strong>
-        </div>
+  <div class= "commenttxt">
+    <strong>
+      <%= User.find(comment.user_id).first_name %>
+        says: 
+    </strong>
+  </div>
 
         <%= comment.comment %> 
    
     <div class="comment-admin">
-        <%= link_to "Edit", edit_post_comment_path(@post, comment) %>
-        <%= link_to "Delete", [@post, comment], method: :delete%>
+        <%= link_to "Edit", edit_post_comment_path(@post, comment), :class => "btn font-weight-bold border-secondary btnpairing" %>
+        <%= link_to "Delete", [@post, comment], method: :delete, :class => "btn font-weight-bold border-secondary btnpairing" %>
     </div>
 </div>

@@ -1,35 +1,95 @@
 <br>
 
-<h1>Request:</h1>
-
-<% if @pending_mentor_request.any?%>
-  Pending mentor requests<br>
-  <% @pending_mentor_request.each do |pairing| %>
-    <% mentee = User.find(pairing.mentee_id) %>
-    <span>
-      <%= mentee.first_name %>
-      <%= button_to 'Accept', edit_pairing_path, method: :get, params: {pairing_id: pairing.id, status: 'active'} %>
-      <%= button_to 'Decline', edit_pairing_path, method: :get, params: {pairing_id: pairing.id, status: 'decline'} %>
-    </span>
-  <% end %>
-<% else %>
-  <p>You have no pending mentor requests!</p>
-<% end %>
+<h1 class= "text-center header">Mentorship Requests</h1>
+<br>
 
 
 
+<div class="cmtcard col-sm-4 i-am-centered">
+  <div class="card bg-secondary">
+    <div class="card-body">
+      <div>
+        <div class= "commenttxt">
+        <h3 class="title text-center"> Inbound Requests </h3>
+          <h4 style="color:#b2dfdb;">Pending mentor requests</h4>
+          <br>
+          <div>
+          <% if @pending_mentor_request.any?%>
+          <% @pending_mentor_request.each do |pairing| %>
+          <% mentee = User.find(pairing.mentee_id) %>
+          <div>
+            <table class="table table-hover">
+              <tbody>
+                <tr>
+                  <td>
+                    <%= mentee.first_name %>
+                  </td>
+                  <td>
+                    <%= button_to 'Accept', edit_pairing_path, method: :get, params: {pairing_id: pairing.id, status: 'active'},  :class => "btn font-weight-bold border-secondary btnpairing" %>
+                  </td>
+                  <td>
+                    <%= button_to 'Decline', edit_pairing_path, method: :get, params: {pairing_id: pairing.id, status: 'decline'},  :class => "btn font-weight-bold border-secondary btnpairing" %>
+                  </td>
+                </tr>
+              </tbody> 
+            </table>
+          </div>
+        <% end %>
+      <% else %>
+        <h4 style= "font-weight: bold;"> You currently have no pending mentor requests.</h4>
+      <% end %>
 
-<% if @pending_mentee_request.any?%>
-  <h5>Request Sent:</h5>
-  <% @pending_mentee_request.each do |pairing| %>
-    <% mentor = User.find(pairing.mentor_id) %>
-    <span>
-      <%= mentor.first_name %>
-      <%= button_to 'Cancel', edit_pairing_path, method: :get, params: {pairing_id: pairing.id, status: 'cancel'} %>
-    </span>
-  <% end %>
-<% else %>
-  <p>You have not sent any requests!</p>
-<% end %>
+        </div>
+        
+        </div>
+    </div>
+  </div>
+</div>
+</div>
 
-<%= link_to 'Profile', user_path(params[:id]) %>
+<br>
+
+
+<div class="cmtcard col-sm-4 i-am-centered">
+  <div class="card bg-secondary">
+    <div class="card-body">
+      <div>
+        <div class= "commenttxt">
+        <h3 class="title text-center"> Outbound Requests </h3>
+          <h4 style="color:#b2dfdb;">Request Sent To:</h4>
+          <br>
+          <div>
+          <% if @pending_mentee_request.any?%>
+          <% @pending_mentee_request.each do |pairing| %>
+          <% mentor = User.find(pairing.mentor_id) %>
+          <div>
+          <table class="table table-hover">
+              <tbody>
+                <tr>
+                  <td> 
+                    <%=mentor.first_name %>
+                  </td>
+                  <td>
+                    <%= button_to 'Accept', edit_pairing_path, method: :get, params: {pairing_id: pairing.id, status: 'active'},  :class => "btn font-weight-bold border-secondary btnpairing" %>
+                  </td>
+                  <td> 
+                    <%= button_to 'Decline', edit_pairing_path, method: :get, params: {pairing_id: pairing.id, status: 'decline'},  :class => "btn font-weight-bold border-secondary btnpairing" %>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        <% end %>
+      <% else %>
+        <h4 style= "font-weight: bold;"> You currently have not sent any requests.</h4>
+      <% end %>
+
+        </div>
+        
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
