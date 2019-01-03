@@ -1,27 +1,63 @@
 <h1 class= "text-center header"> Question </h1>
 
-<p> 
-    Subject: <%= @post.subject %>
-</p>
-
-<p> 
-    Question: <%= @post.body %>
-</p>
-
-<%= link_to 'Inbox', posts_path, :class => "btn font-weight-bold border-secondary btnpairing" %> |
-<%= link_to 'Profile', user_path, :class => "btn font-weight-bold border-secondary btnpairing" %>
-
-
-<div id ="comments">
-  <h1 class="text-center header"> Comments</h1>
-  <%@comments.each do |comment| %>
-    <%= render partial: "comments/comment", locals: {comment: comment} %>
-  <%end%>
-
-   
-  <h2 class="header"> Add a comment </h2>
-  <%= render partial: "comments/form", locals: {comment: @post.comments.new} %>
+<div class="cmtcard col-sm-4 i-am-centered">
+  <div class="card bg-secondary">
+    <div class="card-body">
+      <div>
+        <div class= "commenttxt">
+          <p class> 
+              Subject: <%= @post.subject %>
+          <br>
+          <br>
+              Question: <%= @post.body %>
+        </div>
+        <br>
+          <%= link_to 'Inbox', posts_path, :class => "btn font-weight-bold border-secondary btnpairing" %> 
+          <%= link_to 'Profile', user_path, :class => "btn font-weight-bold border-secondary btnpairing" %>
+      </div>
+    </div>
+  </div>
 </div>
 
-<%= link_to 'Edit', edit_post_path(@post), :class => "btn font-weight-bold border-secondary btnpairing" %> |
-<%= link_to 'Back', posts_path, :class => "btn font-weight-bold border-secondary btnpairing" %>
+<div>
+  <h1 class="text-center header"> Comments</h1>
+    <div class="cmtcard col-sm-4 i-am-centered">
+      <div class="card bg-secondary">
+        <div class="card-body">
+          <div>
+            <div class= "commenttxt">
+              <p class> 
+              <%@comments.each do |comment| %>
+               <%= render partial: "comments/comment", locals: {comment: comment} %>
+              <%end%>
+            </div>
+          </div>
+          <br>
+          <h2 style="color:white; text-align:center;"> Add a comment </h2>
+          <%= render partial: "comments/form", locals: {comment: @post.comments.new} %>
+        </div>
+        <%= link_to 'Edit', edit_post_path(@post), :class => "btn font-weight-bold border-secondary btnpairing" %> |
+        <%= link_to 'Back', posts_path, :class => "btn font-weight-bold border-secondary btnpairing" %>
+      </div>
+    </div>
+  </div>
+</div>
+        </div>
+        
+      </div>
+      
+    </div>
+    
+</div>
+
+
+
+      
+
+
+
+
+
+
+
+

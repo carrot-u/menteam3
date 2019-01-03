@@ -218,7 +218,7 @@
   margin: 0 auto; 
   float: none; 
   margin-bottom: 10px; 
-  height: 275px;
+  height: 320px;
 
 }
 
@@ -264,6 +264,16 @@
   color: black;
 }
 
+.profedit {
+  color: #b2dfdb;
+  font-weight: bold;
+}
+
+.profedit:hover {
+  color: black;
+  font-weight: bold;
+}
+
 //---------------END OF PROFILE
 
 //PAIRINGS
@@ -284,6 +294,13 @@
    font-weight: bold;
 }
 
+
+.paircard {
+
+  width: 500px;
+  display: inline-block;
+
+}
 //End of pairings
 
 
@@ -315,7 +332,6 @@
   background-color: #b2dfdb;
   font-size: 17px;
   font-weight: bold;
-
 }
 
 .i-am-centered { margin: auto; max-width: 370px;}
@@ -323,6 +339,78 @@
 
 
 //END OF FORM STYLING
+
+
+//comment Styling
+.commenttxt {
+  color: white;
+  font-size: 20px;
+}
+
+.commenttxt2 {
+  color: white;
+  font-size: 16px;
+}
+
+.cmtcard {
+  max-width: 500px;
+
+}
+
+//end of comment styling
+
+//topic start
+
+.topictitle {
+  
+
+}
+
+.pairbtn {
+  font-weight:bold;
+  color: white;
+  background-color: #b2dfdb;
+}
+
+.topsubmit {
+
+  color: white;
+  background-color: #b2dfdb;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.topsubmit:hover {
+  color: black;
+  background-color: #b2dfdb;
+  font-size: 17px;
+  font-weight: bold;
+}
+
+.topiclink {
+  color: #b2dfdb;
+}
+
+.topiclink:hover {
+  color:black;
+  font-weight: bold;
+  
+}
+
+.topiclabel {
+
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.mentorname {
+  color: white;
+  background-color: #b2dfdb;
+
+}
+
+
+//topic end
 
 body {
   background-color: #F0F8FF;

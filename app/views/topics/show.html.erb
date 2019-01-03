@@ -1,14 +1,31 @@
-<%= @topic.topic %>
 
+<br>
 <h1 class= "text-center header"> Mentors In This Topic </h1>
+<br>
 
-<%= form_for @pairing do |f| %>
-<div class="field">
-  <%= f.label :mentor %>
-  <%= f.collection_select :mentor_id, @mentors, :id, :name %>
+<div class="cmtcard col-sm-4 i-am-centered">
+  <div class="card bg-secondary">
+    <div class="card-body">
+      <div>
+        <div class= "commenttxt">
+          <h2 class="title text-center">  <%= @topic.topic %>
+          </h2>     
+          <br>
+             <%= form_for @pairing do |f| %>
+          <div class="field">
+            <%= f.label  'Mentor:', class: "topiclabel"%>
+            <%= f.collection_select :mentor_id, @mentors, :id, :name %>
+          </div>
+          <br>
+
+          <div text-center>
+              <%= f.submit 'Create Pairing', class: "topsubmit"  %>
+          </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
-<div class="field">
-  <%= f.submit %>
-</div>
-<% end %>
+
+

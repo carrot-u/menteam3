@@ -1,7 +1,7 @@
 <div class='container' id='message_parent'>
     <div class='row'>
         <div class='col-12 col-md-10' id='post_parent'>
-            <h2 id='message_header'>Messages</h2>
+            <h2 id='message_header' class= "text-center header">Messages</h2>
             <% @post.each do |post| %>
                 <div class='container'id='post_card'>
                     <div class='row'>
@@ -22,7 +22,7 @@
             <% end %>
         </div>
         <div class='col-6 col-md-2'id='conversation_parent'>
-            <h2 id='conversation_header'>Conversations</h2>
+            <h2 id='conversation_header' class= "text-center header">Conversations</h2>
             <h5 id='conversation_mentors_header'><em>Mentors:</em> </h5>
             <div id='conversation_mentors'>
                 <% @user.mentee_pairings_with_post.each do |pairing| %>
