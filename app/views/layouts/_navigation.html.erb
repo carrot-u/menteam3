@@ -70,7 +70,7 @@
       <li class="sec-nav-li">
         <% messages = '' %>
         <% if logged_in? %>
-          <% messages = posts_path(session[:user_id]) %> 
+          <% messages = posts_path %> 
         <% else %>
           <% messages = root_path %>
         <% end %>
