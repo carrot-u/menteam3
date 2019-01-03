@@ -1,4 +1,10 @@
-<h1>Request:</h1>
+<h1 class= "text-center header">Mentorship Requests</h1>
+
+<br>
+<br>
+<h4 style="color:gray";> Note: All requests to be someone's mentor will show up here. </h4> 
+<br>
+<br>
 
 <% if @pending_mentor_request.any?%>
   Pending mentor requests<br>
@@ -30,4 +36,4 @@
   <p>You have not sent any requests!</p>
 <% end %>
 
-<%= link_to 'Profile', user_path(params[:id]) %>
+<%= link_to 'Back to Profile', user_path(params[:id]) %>
