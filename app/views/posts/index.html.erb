@@ -13,20 +13,8 @@
                             <p id='post_body'><%= post.body %><p>
                             <div>
                                 <h6 id='comment_header'><strong><em>Comments:</em></strong></h6>
-                                <% if post.comments.length > 3%>
-                                    <h6 id='show_more_comments'><em>Show previous <%= post.comments.length - 3 %> comments</em></h6>
-                                    <% post.comments.last(3).each do |comment| %>
-                                        <% comment_author = User.find(comment.user_id).first_name%>
-                                        <h6 id='comment_author'><%= comment_author + ' says:'%></h6>
-                                        <p><%= comment.comment %></p>
-                                    <% end %>
-                                <% else %>
-                                    <% post.comments.each do |comment| %>
-                                        <% comment_author = User.find(comment.user_id).first_name%>
-                                        <h6 id='comment_author'><%= comment_author + ' says:'%></h6>
-                                        <p><%= comment.comment %></p>
-                                    <% end %>
-                                <% end %>
+                                <% post_comments = post.comments.map {|comment| comment.to_json(:include => :user)} %>
+                                <%= react_component("Comment", comments: post_comments ) %>                            
                             </div>
                         </div>
                     </div>
