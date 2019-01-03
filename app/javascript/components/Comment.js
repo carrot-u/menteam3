@@ -19,7 +19,7 @@ class Comment extends React.Component {
     const view_more_message_count = this.props.comments.length - 3;
     let current_message = document.getElementById('show_more_comments')
     let show_less_message = 'Show less comments'
-    if (current_message.innerHTML == show_less_message) {
+    if (this.state.view_more_message == show_less_message) {
       this.setState({
         comments_list: initial_list,
         view_more_message: "View " + view_more_message_count + " more comments" })
@@ -31,11 +31,11 @@ class Comment extends React.Component {
     };
   };
   render () {
-    console.log(this.state.comments_list)
-    let single_comment = this.state.comments_list.map ((e) => {
+    console.log(this.state.view_more_message)
+    let single_comment = this.state.comments_list.map ((e,i) => {
       let parse_comment = JSON.parse(e)
       return [
-        <div id='comment'>
+        <div id='comment' key={i}>
           <h6 id='comment_author'>{parse_comment.user.first_name} says:</h6>
           <p>{parse_comment.comment}</p>
         </div>
