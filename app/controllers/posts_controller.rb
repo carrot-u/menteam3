@@ -11,7 +11,8 @@ class PostsController < ApplicationController
           @post << post
         end
       end
-      @post
+      @reverse_post = @post.sort_by(&:created_at).reverse
+      @reverse_post
     end
 
   
