@@ -16,6 +16,7 @@
  @import "chosen";
 
 
+
 .navbar-custom {
     background-color: #248f24;
     display: flex;
@@ -193,7 +194,7 @@
   padding: 30px;
 }
 
-.table-responsive>.table>tbody>tr>td{
+.table-responsive>.table>tbody>tr>td {
   horizontal-align: middle;
 }
 
@@ -222,3 +223,32 @@
       height: 16rem;
 
 }
+
+.requestcard {
+  color: black;
+  background-color: orange
+}
+
+.requests {
+  color: black;
+  list-style-type: none;
+
+}
+
+.topicname {
+  color:white;
+}
+
+.rqst {
+  color: white;
+}
+
+.rqst:hover {
+
+  color: #008000;
+}
+//---------------
+
+body {
+  background-color: #F0F8FF;
+ }

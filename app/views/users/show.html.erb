@@ -10,6 +10,8 @@
 
 
 
+
+
  <!--CARDS start here-->
 <div class="card cardprof card-1 col-md-6 text-md-center" id="card1">
   <table class="table table-hover">
@@ -46,8 +48,26 @@
       </tr>
     </tbody>
   </table>
+  
 </div>
+<!--
+<%= render partial: 'user_tags/form'%>	
 
+
+ <h2 class="title"> Mentoring for the following topics:</h2>
+ <% @user_tags_list.each do |user_selection| %>
+ <li><%= topic_name = Topic.find(user_selection.topic_id).topic %></li>
+ <% end %>
+
+ <% request = 'Request' %>
+ <% request += "(#{@pending_mentor_request.length})" if @pending_mentor_request.any? %>
+ <%= link_to request, pairing_path(session[:user_id]) %>
+ <%= link_to 'Inbox', posts_path%>
+  <div>	 
+  <%= link_to 'Edit Profile', edit_user_path %>	 
+ </div>
+
+-->
 
 <br>
 <br>
@@ -66,16 +86,19 @@
   <div class="col-sm-6">
     <div class="card cardprof bg-success">
       <div class="card-body">
-        <h2 class="title text-center"> Mentorship Requests:</h2>
+        <h2 class="title text-center"> Currently Mentoring:</h2>
         <% @user_tags_list.each do |user_selection| %>
-        <li><%= topic_name = Topic.find(user_selection.topic_id).topic %></li>
+        <li class="topicname", style="list-style-type: none; font-weight: bold;"><%= topic_name = Topic.find(user_selection.topic_id).topic %></li>
         <% end %>
-        <h3>
-        <% request = 'Requests' %>
-        </h3>
-        <% request += "(#{@pending_mentor_request.length})" if @pending_mentor_request.any? %>
-        <%= link_to request, pairing_path(session[:user_id]) %>
       </div>
+      <div class="card requestcard text-md-center">
+      <h2>
+          <% request = "Mentorship Requests" %>
+            <% request += "(#{@pending_mentor_request.length})" if @pending_mentor_request.any? %>
+            <%= link_to request, pairing_path(session[:user_id]), class: "rqst" %>
+      </h2>
+       </div>
+  
      </div>
     </div>
   </div>
