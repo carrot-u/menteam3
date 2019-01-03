@@ -3,10 +3,11 @@
 <p>
     <div class = "field">
         <%= f.label :comment, "Add a Comment" %>
-        <%= f.text_area :comment %>
+        <br>
+        <%= f.text_area :comment, size: "40x10" %>
     </div>
 
     <div class="actions">
-        <%=f.submit 'Post your Comment' %>
+        <%=f.submit 'Post your Comment', :class => "btn font-weight-bold border-secondary btnpairing" %>
  <% end %>
  </p>

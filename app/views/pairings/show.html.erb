@@ -1,6 +1,10 @@
 <br>
 
-<h1>Request:</h1>
+<h1 class= "text-center header">Mentorship Requests</h1>
+<br>
+<br>
+<h2 class="title2"> Inbound Requests </h2>
+<br>
 
 <% if @pending_mentor_request.any?%>
   Pending mentor requests<br>
@@ -13,11 +17,16 @@
     </span>
   <% end %>
 <% else %>
-  <p>You have no pending mentor requests!</p>
+  <h4 style= "font-weight: bold;"> You currently have no pending mentor requests.</h4>
 <% end %>
 
+<br>
+<br>
+<br>
+<br>
 
-
+<h2 class="title2"> Outbound Requests </h2>
+<br>
 
 <% if @pending_mentee_request.any?%>
   <h5>Request Sent:</h5>
@@ -29,7 +38,12 @@
     </span>
   <% end %>
 <% else %>
-  <p>You have not sent any requests!</p>
+ <h4 style= "font-weight: bold;">You currently have not sent any requests.</h4>
 <% end %>
-
-<%= link_to 'Profile', user_path(params[:id]) %>
+<br>
+<br>
+<div>
+<h4>
+  <%= link_to 'Go Back To Profile', user_path(params[:id]), :class => "btn font-weight-bold border-secondary btnpairing"%>
+</h4>
+</div>

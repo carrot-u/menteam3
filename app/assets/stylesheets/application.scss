@@ -282,10 +282,47 @@
   font-size: 46px;
    color: #78909c;
    font-weight: bold;
-   font-style: italic;
 }
 
 //End of pairings
+
+
+//FORM STYLING
+
+.form_field {
+  color: #4b636e;
+  font-size: 17px;
+
+}
+
+.form_label {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+
+}
+
+.form_submit {
+  color: white;
+  background-color: #b2dfdb;
+  font-size: 17px;
+  font-weight: bold;
+
+}
+
+.form_submit:hover {
+  color: black;
+  background-color: #b2dfdb;
+  font-size: 17px;
+  font-weight: bold;
+
+}
+
+.i-am-centered { margin: auto; max-width: 370px;}
+
+
+
+//END OF FORM STYLING
 
 body {
   background-color: #F0F8FF;
