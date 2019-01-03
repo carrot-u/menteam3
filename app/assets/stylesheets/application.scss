@@ -15,10 +15,10 @@
  @import "bootstrap";
  @import "chosen";
 
-
+//-------------------NAVBAR
 
 .navbar-custom {
-    background-color: #248f24;
+    background-color: #4b636e;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -29,7 +29,11 @@
 }
 
 .navbtn {
-    color: #ff8c1a;
+    color: #b2dfdb;
+}
+
+.navbtn:hover {
+  color: #4b636e;
 }
 
  #logo {
@@ -42,7 +46,7 @@
  }
 
  #logo:hover {
-     color: #ff8c1a;
+     color: #b2dfdb;
      text-decoration: none;
  }
 
@@ -56,7 +60,7 @@
 
 .second-nav {
     width: 100%;
-    background: #ff8c1a;
+    background: #78909c;
     min-height: 50px;
     text-align: center;
     display: flex;
@@ -65,11 +69,12 @@
   .second-nav .nav {
     display: flex;
     justify-content: space-between;
-    font-weight: 300;
+    font-weight: 500;
     flex-grow: 1;
     list-style-type: none;
     margin: 0 auto;
     padding: 0;
+
   }
 
 //   .second-nav-li {
@@ -83,7 +88,7 @@
     font-style: italic;
   }
   .spot {
-    text-shadow: 2px 2px #ff8c1a;
+    text-shadow: 2px 2px #78909c;
     font-weight: normal;
 
   }
@@ -100,9 +105,10 @@
     color: black;
     font-weight: bold;
   }
+  //-------------END OF NAV
 
  .title {
-  color: orange;
+  color: white;
   font-weight: bold;
  }
 
@@ -158,7 +164,7 @@
 
 .header {
   font-weight: bold;
-  color: green;
+  color: #4b636e;
 }
 #post_body {
   margin-top: 15px;
@@ -226,7 +232,7 @@
 
 .requestcard {
   color: black;
-  background-color: orange
+  background-color: #b2dfdb;
 }
 
 .requests {
@@ -245,9 +251,31 @@
 
 .rqst:hover {
 
-  color: #008000;
+  color: black;
 }
-//---------------
+
+//---------------END OF PROFILE
+
+//PAIRINGS
+
+.btnpairing {
+  background-color: #b2dfdb;
+  color: white;
+}
+
+.btnpairing:hover {
+  background-color: #b2dfdb;
+  color: black;
+}
+
+.title2 {
+  font-size: 46px;
+   color: #78909c;
+   font-weight: bold;
+   font-style: italic;
+}
+
+//End of pairings
 
 body {
   background-color: #F0F8FF;
