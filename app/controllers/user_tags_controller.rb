@@ -19,7 +19,7 @@ class UserTagsController < ApplicationController
 
     # @user_tags = UserTag.create(params[@user.id, :topic_id])
 
-    redirect_to users_path
+    redirect_to user_path(:id => session[:user_id])
   end
 
 
